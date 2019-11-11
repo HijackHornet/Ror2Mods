@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="132">
+	<RootPaths>
+		<ProjectRoot>D:\Projets\RoR2Mods\SillySounds\wwise\SillySoundsBank\</ProjectRoot>
+		<SourceFilesRoot>D:\Projets\RoR2Mods\SillySounds\wwise\SillySoundsBank\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Projets\RoR2Mods\SillySounds\wwise\SillySoundsBank\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>D:\Projets\RoR2Mods\SillySounds\wwise\SillySoundsBank\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3147269408" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\SillySoundsBank</ObjectPath>
+			<ShortName>SillySoundsBank</ShortName>
+			<Path>SillySoundsBank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="305393359" Name="Dominating" ObjectPath="\Events\Default Work Unit\Dominating"/>
+				<Event Id="3650570114" Name="DoubleKill" ObjectPath="\Events\Default Work Unit\DoubleKill"/>
+				<Event Id="1611658976" Name="GodLike" ObjectPath="\Events\Default Work Unit\GodLike"/>
+				<Event Id="2632074263" Name="HeadShot" ObjectPath="\Events\Default Work Unit\HeadShot"/>
+				<Event Id="2980856139" Name="LudriKill" ObjectPath="\Events\Default Work Unit\LudriKill"/>
+				<Event Id="2233416765" Name="MonsterKill" ObjectPath="\Events\Default Work Unit\MonsterKill"/>
+				<Event Id="887867080" Name="MultiKill" ObjectPath="\Events\Default Work Unit\MultiKill"/>
+				<Event Id="2756207098" Name="Rampage" ObjectPath="\Events\Default Work Unit\Rampage"/>
+				<Event Id="3103184737" Name="TripleKill" ObjectPath="\Events\Default Work Unit\TripleKill"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="156036436" Language="SFX">
+					<ShortName>God Like.wav</ShortName>
+					<Path>SFX\God Like_56D34C19.wem</Path>
+				</File>
+				<File Id="190874829" Language="SFX">
+					<ShortName>Ludicrous Kill.wav</ShortName>
+					<Path>SFX\Ludicrous Kill_56D34C19.wem</Path>
+				</File>
+				<File Id="305719096" Language="SFX">
+					<ShortName>Head Shot.wav</ShortName>
+					<Path>SFX\Head Shot_56D34C19.wem</Path>
+				</File>
+				<File Id="685003909" Language="SFX">
+					<ShortName>Double Kill.wav</ShortName>
+					<Path>SFX\Double Kill_56D34C19.wem</Path>
+				</File>
+				<File Id="766017088" Language="SFX">
+					<ShortName>Triple Kill.wav</ShortName>
+					<Path>SFX\Triple Kill_56D34C19.wem</Path>
+				</File>
+				<File Id="807748751" Language="SFX">
+					<ShortName>Rampage.wav</ShortName>
+					<Path>SFX\Rampage_56D34C19.wem</Path>
+				</File>
+				<File Id="823186454" Language="SFX">
+					<ShortName>Monster Kill.wav</ShortName>
+					<Path>SFX\Monster Kill_56D34C19.wem</Path>
+				</File>
+				<File Id="861798176" Language="SFX">
+					<ShortName>Dominating.wav</ShortName>
+					<Path>SFX\Dominating_56D34C19.wem</Path>
+				</File>
+				<File Id="891879954" Language="SFX">
+					<ShortName>Multi Kill.wav</ShortName>
+					<Path>SFX\Multi Kill_56D34C19.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

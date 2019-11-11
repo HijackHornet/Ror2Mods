@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{5A5107EC-52F0-4816-8863-19E1ECE7F212}" SchemaVersion="89">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{5A5107EC-52F0-4816-8863-19E1ECE7F212}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="SillySoundsBank" ID="{C4112AD9-EF90-4A9A-BEE9-E2CA4E3E98E9}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Ludicrous Kill" ID="{9412D6A8-071B-405D-B415-BEC3D2044B81}" WorkUnitID="{4765844C-77F8-4805-8EC6-0DC6CF89E819}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Triple Kill" ID="{E8080CB2-ED35-4365-BDD6-CA83A959F250}" WorkUnitID="{4765844C-77F8-4805-8EC6-0DC6CF89E819}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Double Kill" ID="{E1E0993C-F486-44F0-B642-4A6CEF3C569F}" WorkUnitID="{4765844C-77F8-4805-8EC6-0DC6CF89E819}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Monster Kill" ID="{55FCB700-759E-459F-911E-D12E205811BE}" WorkUnitID="{4765844C-77F8-4805-8EC6-0DC6CF89E819}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Head Shot" ID="{138DB438-6F28-45A7-B53F-2598F27B418D}" WorkUnitID="{4765844C-77F8-4805-8EC6-0DC6CF89E819}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Dominating" ID="{F4895B2B-3496-4809-AFC4-DB085F689F78}" WorkUnitID="{4765844C-77F8-4805-8EC6-0DC6CF89E819}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Multi Kill" ID="{EC25A7B1-717C-4B41-B10D-95CC0B928AD9}" WorkUnitID="{4765844C-77F8-4805-8EC6-0DC6CF89E819}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Rampage" ID="{BD2E805B-0D9E-4EB0-A090-98EF2A9DE29D}" WorkUnitID="{4765844C-77F8-4805-8EC6-0DC6CF89E819}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="God Like" ID="{6B8E03B8-0ABF-4FDF-876A-CBC35C339F0D}" WorkUnitID="{4765844C-77F8-4805-8EC6-0DC6CF89E819}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

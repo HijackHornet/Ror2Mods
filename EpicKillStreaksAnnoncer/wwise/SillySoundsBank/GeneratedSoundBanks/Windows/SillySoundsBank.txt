@@ -1,0 +1,22 @@
+Event	ID	Name			Wwise Object Path	Notes
+	305393359	Dominating			\Default Work Unit\Dominating	
+	887867080	MultiKill			\Default Work Unit\MultiKill	
+	1611658976	GodLike			\Default Work Unit\GodLike	
+	2233416765	MonsterKill			\Default Work Unit\MonsterKill	
+	2632074263	HeadShot			\Default Work Unit\HeadShot	
+	2756207098	Rampage			\Default Work Unit\Rampage	
+	2980856139	LudriKill			\Default Work Unit\LudriKill	
+	3103184737	TripleKill			\Default Work Unit\TripleKill	
+	3650570114	DoubleKill			\Default Work Unit\DoubleKill	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	156036436	God Like	D:\Projets\RoR2Mods\SillySounds\wwise\SillySoundsBank\.cache\Windows\SFX\God Like_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\God Like		262720
+	190874829	Ludicrous Kill	D:\Projets\RoR2Mods\SillySounds\wwise\SillySoundsBank\.cache\Windows\SFX\Ludicrous Kill_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ludicrous Kill		751168
+	305719096	Head Shot	D:\Projets\RoR2Mods\SillySounds\wwise\SillySoundsBank\.cache\Windows\SFX\Head Shot_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Head Shot		290368
+	685003909	Double Kill	D:\Projets\RoR2Mods\SillySounds\wwise\SillySoundsBank\.cache\Windows\SFX\Double Kill_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Double Kill		328768
+	766017088	Triple Kill	D:\Projets\RoR2Mods\SillySounds\wwise\SillySoundsBank\.cache\Windows\SFX\Triple Kill_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Triple Kill		363712
+	807748751	Rampage	D:\Projets\RoR2Mods\SillySounds\wwise\SillySoundsBank\.cache\Windows\SFX\Rampage_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rampage		313408
+	823186454	Monster Kill	D:\Projets\RoR2Mods\SillySounds\wwise\SillySoundsBank\.cache\Windows\SFX\Monster Kill_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monster Kill		811072
+	861798176	Dominating	D:\Projets\RoR2Mods\SillySounds\wwise\SillySoundsBank\.cache\Windows\SFX\Dominating_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Dominating		262720
+	891879954	Multi Kill	D:\Projets\RoR2Mods\SillySounds\wwise\SillySoundsBank\.cache\Windows\SFX\Multi Kill_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\Multi Kill		354880
+

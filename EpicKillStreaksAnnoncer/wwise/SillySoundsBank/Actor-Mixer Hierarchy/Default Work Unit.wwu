@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{4765844C-77F8-4805-8EC6-0DC6CF89E819}" SchemaVersion="89">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{4765844C-77F8-4805-8EC6-0DC6CF89E819}" PersistMode="Standalone">
+			<ChildrenList>
+				<Sound Name="Dominating" ID="{F4895B2B-3496-4809-AFC4-DB085F689F78}" ShortID="42545386">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9B552534-0708-4601-BB2A-B86CD6B6D546}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{698174E5-5066-4AA5-A6BA-999A965F2EAB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Dominating" ID="{3BF51F1E-0BD9-497A-82EA-B176428254E3}" ShortID="861798176">
+							<Language>SFX</Language>
+							<AudioFile>Dominating.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Dominating" ID="{3BF51F1E-0BD9-497A-82EA-B176428254E3}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Double Kill" ID="{E1E0993C-F486-44F0-B642-4A6CEF3C569F}" ShortID="626075714">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9B552534-0708-4601-BB2A-B86CD6B6D546}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{698174E5-5066-4AA5-A6BA-999A965F2EAB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Double Kill" ID="{371E9995-E18F-4A79-8AF6-FC4791926A32}" ShortID="685003909">
+							<Language>SFX</Language>
+							<AudioFile>Double Kill.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Double Kill" ID="{371E9995-E18F-4A79-8AF6-FC4791926A32}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="God Like" ID="{6B8E03B8-0ABF-4FDF-876A-CBC35C339F0D}" ShortID="616764953">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9B552534-0708-4601-BB2A-B86CD6B6D546}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{698174E5-5066-4AA5-A6BA-999A965F2EAB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="God Like" ID="{C2EAB4E7-6372-46C4-AEDD-2EBC51C051B5}" ShortID="156036436">
+							<Language>SFX</Language>
+							<AudioFile>God Like.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="God Like" ID="{C2EAB4E7-6372-46C4-AEDD-2EBC51C051B5}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Head Shot" ID="{138DB438-6F28-45A7-B53F-2598F27B418D}" ShortID="554067376">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9B552534-0708-4601-BB2A-B86CD6B6D546}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{698174E5-5066-4AA5-A6BA-999A965F2EAB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Head Shot" ID="{86B04400-4AEC-44C7-A931-F0C9CF36483C}" ShortID="305719096">
+							<Language>SFX</Language>
+							<AudioFile>Head Shot.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Head Shot" ID="{86B04400-4AEC-44C7-A931-F0C9CF36483C}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Ludicrous Kill" ID="{9412D6A8-071B-405D-B415-BEC3D2044B81}" ShortID="283645358">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9B552534-0708-4601-BB2A-B86CD6B6D546}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{698174E5-5066-4AA5-A6BA-999A965F2EAB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Ludicrous Kill" ID="{749056C1-DF51-4D02-83B8-BFCC730914BA}" ShortID="190874829">
+							<Language>SFX</Language>
+							<AudioFile>Ludicrous Kill.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Ludicrous Kill" ID="{749056C1-DF51-4D02-83B8-BFCC730914BA}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Monster Kill" ID="{55FCB700-759E-459F-911E-D12E205811BE}" ShortID="829578435">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9B552534-0708-4601-BB2A-B86CD6B6D546}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{698174E5-5066-4AA5-A6BA-999A965F2EAB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Monster Kill" ID="{D90909A1-17DA-4E13-B9D5-842A5A8C22D9}" ShortID="823186454">
+							<Language>SFX</Language>
+							<AudioFile>Monster Kill.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Monster Kill" ID="{D90909A1-17DA-4E13-B9D5-842A5A8C22D9}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Multi Kill" ID="{EC25A7B1-717C-4B41-B10D-95CC0B928AD9}" ShortID="869415905">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9B552534-0708-4601-BB2A-B86CD6B6D546}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{698174E5-5066-4AA5-A6BA-999A965F2EAB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Multi Kill" ID="{7F27B7F7-444C-455F-932B-F8E8DD144B00}" ShortID="891879954">
+							<Language>SFX</Language>
+							<AudioFile>Multi Kill.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Multi Kill" ID="{7F27B7F7-444C-455F-932B-F8E8DD144B00}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Rampage" ID="{BD2E805B-0D9E-4EB0-A090-98EF2A9DE29D}" ShortID="1031580300">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9B552534-0708-4601-BB2A-B86CD6B6D546}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{698174E5-5066-4AA5-A6BA-999A965F2EAB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Rampage" ID="{5E827B2A-5BD0-4AA8-8DB5-6D2EC5840975}" ShortID="807748751">
+							<Language>SFX</Language>
+							<AudioFile>Rampage.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Rampage" ID="{5E827B2A-5BD0-4AA8-8DB5-6D2EC5840975}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Triple Kill" ID="{E8080CB2-ED35-4365-BDD6-CA83A959F250}" ShortID="176492790">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{9B552534-0708-4601-BB2A-B86CD6B6D546}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{698174E5-5066-4AA5-A6BA-999A965F2EAB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Triple Kill" ID="{1A4205A1-47A7-424A-8FE4-8A02CCC2130E}" ShortID="766017088">
+							<Language>SFX</Language>
+							<AudioFile>Triple Kill.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Triple Kill" ID="{1A4205A1-47A7-424A-8FE4-8A02CCC2130E}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

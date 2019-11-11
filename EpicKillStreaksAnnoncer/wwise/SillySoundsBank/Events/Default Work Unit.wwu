@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{01D15EF3-222A-4C0D-B9B9-024F18127608}" SchemaVersion="89">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{01D15EF3-222A-4C0D-B9B9-024F18127608}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="HeadShot" ID="{DF519E54-816A-4220-BAAC-93947507DECC}">
+					<ChildrenList>
+						<Action Name="" ID="{3102BB54-0A24-47CE-A9A0-C3688FEF8B1E}" ShortID="396889470">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Head Shot" ID="{138DB438-6F28-45A7-B53F-2598F27B418D}" WorkUnitID="{4765844C-77F8-4805-8EC6-0DC6CF89E819}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MonsterKill" ID="{FF5D2E9F-501C-448F-9F7C-3C010675AB84}">
+					<ChildrenList>
+						<Action Name="" ID="{4A8C9C70-3A65-4ECD-97EE-F3F1E59380C2}" ShortID="1009542415">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Monster Kill" ID="{55FCB700-759E-459F-911E-D12E205811BE}" WorkUnitID="{4765844C-77F8-4805-8EC6-0DC6CF89E819}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="DoubleKill" ID="{A7D2BBE7-85E4-4CA5-A997-EC3E75E63B0E}">
+					<ChildrenList>
+						<Action Name="" ID="{EB4B9781-5F77-435B-B39F-ACCE5B6FE761}" ShortID="910303069">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Double Kill" ID="{E1E0993C-F486-44F0-B642-4A6CEF3C569F}" WorkUnitID="{4765844C-77F8-4805-8EC6-0DC6CF89E819}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="TripleKill" ID="{DF8304F2-584E-49AF-8F3D-014801A8F6DF}">
+					<ChildrenList>
+						<Action Name="" ID="{433E658B-3385-41D3-8EC8-3F845F73DC44}" ShortID="266369093">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Triple Kill" ID="{E8080CB2-ED35-4365-BDD6-CA83A959F250}" WorkUnitID="{4765844C-77F8-4805-8EC6-0DC6CF89E819}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="LudriKill" ID="{EEC864B8-B6F1-4D98-AB02-86128EA30362}">
+					<ChildrenList>
+						<Action Name="" ID="{D82F65AC-6BD9-4C72-AEA7-EB2994DEDA59}" ShortID="1056975001">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Ludicrous Kill" ID="{9412D6A8-071B-405D-B415-BEC3D2044B81}" WorkUnitID="{4765844C-77F8-4805-8EC6-0DC6CF89E819}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="GodLike" ID="{9546C742-4799-4680-98B5-94686199CFE6}">
+					<ChildrenList>
+						<Action Name="" ID="{E812443D-B6D5-4ED6-8BE9-FD1CBC0618A7}" ShortID="813443157">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="God Like" ID="{6B8E03B8-0ABF-4FDF-876A-CBC35C339F0D}" WorkUnitID="{4765844C-77F8-4805-8EC6-0DC6CF89E819}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Rampage" ID="{850A5E22-A0DE-4B02-AE58-4B55965F2390}">
+					<ChildrenList>
+						<Action Name="" ID="{5D15C635-C958-4550-A770-1BACC98F174F}" ShortID="439163251">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Rampage" ID="{BD2E805B-0D9E-4EB0-A090-98EF2A9DE29D}" WorkUnitID="{4765844C-77F8-4805-8EC6-0DC6CF89E819}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Dominating" ID="{A2391D31-7DD1-4EAF-AFFC-360B8217F44E}">
+					<ChildrenList>
+						<Action Name="" ID="{0A90CB6C-9877-4BFE-BC67-20473F426AC7}" ShortID="433739927">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Dominating" ID="{F4895B2B-3496-4809-AFC4-DB085F689F78}" WorkUnitID="{4765844C-77F8-4805-8EC6-0DC6CF89E819}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MultiKill" ID="{3603E187-8514-463C-A39D-57CD03FCCC18}">
+					<ChildrenList>
+						<Action Name="" ID="{C94046E4-94E2-4407-97FF-64B5D55562FC}" ShortID="186629416">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Multi Kill" ID="{EC25A7B1-717C-4B41-B10D-95CC0B928AD9}" WorkUnitID="{4765844C-77F8-4805-8EC6-0DC6CF89E819}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

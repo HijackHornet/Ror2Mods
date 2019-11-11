@@ -1,0 +1,9 @@
+{
+    "name": "UnpredictableBlueprint",
+    "version_number": "1.0.0",
+    "website_url": "",
+    "description": "Restart a run with a simple key !",
+    "dependencies": [
+        "bbepis-BepInExPack-1.3.1"
+    ]
+}
