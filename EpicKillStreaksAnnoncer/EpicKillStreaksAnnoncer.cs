@@ -3,11 +3,13 @@
     using AssetPlus;
     using BepInEx;
     using BepInEx.Configuration;
+    using RoR2;
     using System;
     using System.IO;
     using System.Linq;
     using System.Reflection;
     using UnityEngine;
+    using UnityEngine.Networking;
 
     [BepInDependency("com.bepis.r2api")]
     [BepInDependency("com.mistername.AssetPlus")]
@@ -53,18 +55,6 @@
         public static ConfigWrapper<int> ConfigWrapperMonsterKill { get; set; }
 
         public static ConfigWrapper<float> ConfigWrappertimeBeforeKillingSpreeEnd { get; set; }
-
-        private float timeBeforeKillingSpreeEnd = 3.0f;
-
-        private float timeSinceLastKill = 0f;
-
-        private int previousKillCount = 0;
-
-        private int killSpreeCount = 0;
-
-        private uint currentSoundId = 0;
-
-        private uint currentSoundTypeId = 0;
 
         internal void Awake()
         {
@@ -138,91 +128,41 @@
                 "How much seconds are needed before the killing streak reset",
                 3.0f
                 );
-            timeBeforeKillingSpreeEnd = ConfigWrappertimeBeforeKillingSpreeEnd.Value;
-        }
 
-        public void FixedUpdate()
-        {
-            if (RoR2.NetworkUser.readOnlyInstancesList.Count > 0)
+            On.RoR2.CharacterBody.Start += (orig, self) =>
             {
-                int newKillCount;
-                try
+                orig(self);
+                if ((self.master != null) && (self.master.GetComponent<PlayerCharacterMasterController>()))
                 {
-                    newKillCount = RoR2.NetworkUser.readOnlyLocalPlayersList[0].GetCurrentBody().killCount - previousKillCount;
-                    previousKillCount = RoR2.NetworkUser.readOnlyLocalPlayersList[0].GetCurrentBody().killCount;
+                    Debug.Log("Found one player.");
+                    self.gameObject.AddComponent<Annoncer>().initSoundsList(Headshot, DoubleKill, TripleKill, MultiKill, Dominating, Rampage, LudicrousKill, GodLike, MonsterKill);
                 }
-                catch
-                {
-                    return;
-                }
-
-                if (newKillCount > 0)
-                {
-
-                    timeSinceLastKill = 0;
-                    killSpreeCount += newKillCount;
-                   
-
-                    if (killSpreeCount == ConfigWrapperHeadshot.Value)
-                    {
-                        PlaySound(Headshot);
-                    }
-                    else if (killSpreeCount == ConfigWrapperDoubleKill.Value)
-                    {
-                        PlaySound(DoubleKill);
-                    }
-                    else if (killSpreeCount == ConfigWrapperTripleKill.Value)
-                    {
-                        PlaySound(TripleKill);
-                    }
-                    else if ((killSpreeCount >= ConfigWrapperMultiKill.Value) && (killSpreeCount < ConfigWrapperDominating.Value))
-                    {
-                        PlaySound(MultiKill);
-                    }
-                    else if ((killSpreeCount >= ConfigWrapperDominating.Value) && (killSpreeCount < ConfigWrapperRampage.Value))
-                    {
-                        PlaySound(Dominating);
-                    }
-                    else if ((killSpreeCount >= ConfigWrapperRampage.Value) && (killSpreeCount < ConfigWrapperLudicrousKill.Value))
-                    {
-                        PlaySound(Rampage);
-                    }
-                    else if ((killSpreeCount >= ConfigWrapperLudicrousKill.Value) && (killSpreeCount < ConfigWrapperGodLike.Value))
-                    {
-                        PlaySound(LudicrousKill);
-                    }
-                    else if ((killSpreeCount >= ConfigWrapperGodLike.Value) && (killSpreeCount < ConfigWrapperMonsterKill.Value))
-                    {
-                        PlaySound(GodLike);
-                    }
-                    else if(killSpreeCount >= ConfigWrapperMonsterKill.Value)
-                    {
-                        PlaySound(MonsterKill);
-                    }
-                }
-                else
-                {
-                    timeSinceLastKill += Time.fixedDeltaTime;
-                }
-                if (timeSinceLastKill >= timeBeforeKillingSpreeEnd)
-                {
-                    killSpreeCount = 0;
-                    currentSoundTypeId = 0;
-                }
-            }
-        }
-
-        private void PlaySound(uint eventid)
-        {
-
-            if ((currentSoundTypeId != eventid))
+            };
+            On.RoR2.GlobalEventManager.OnCharacterDeath += (orig, self, report) =>
             {
-                currentSoundTypeId = eventid;
-                AkSoundEngine.StopPlayingID(currentSoundId);
-                currentSoundId = AkSoundEngine.PostEvent(eventid, RoR2.NetworkUser.readOnlyLocalPlayersList[0].GetCurrentBody().gameObject);
+                CharacterMaster attacker = null;
+                if (report.attackerMaster)
+                {
+                    attacker = report.attackerMaster;
+                }
+                else if (report.attackerOwnerMaster)
+                {
+                    attacker = report.attackerOwnerMaster;
+                }
+                if (attacker != null)
+                {
+                    PlayerCharacterMasterController pc = null;
+                    pc = attacker.GetComponent<PlayerCharacterMasterController>();
+                    if (pc != null)
+                    {
+                        pc.master.GetBodyObject().GetComponent<Annoncer>().RegisterKill();
+                    }
+                }
 
-            }
+                orig(self, report);
+            };
         }
+
         internal byte[] LoadFile(string resourceName)
         {
             var assembly = Assembly.GetExecutingAssembly();
@@ -235,7 +175,131 @@
             {
                 return reader.ReadBytes(Convert.ToInt32(stream.Length.ToString()));
             }
+        }
+    }
 
+    public class Annoncer : NetworkBehaviour
+    {
+        private float timeBeforeKillingSpreeEnd = 3.0f;
+
+        private float timeSinceLastKill = 0f;
+
+        private int killSpreeCount = 0;
+
+        private uint currentSoundId = 0;
+
+        private uint currentSoundTypeId = 0;
+
+        private uint sound1;
+
+        private uint sound2;
+
+        private uint sound3;
+
+        private uint sound4;
+
+        private uint sound5;
+
+        private uint sound6;
+
+        private uint sound7;
+
+        private uint sound8;
+
+        private uint sound9;
+
+        public void Awake()
+        {
+            timeBeforeKillingSpreeEnd = EpicKillStreaksAnnoncer.ConfigWrappertimeBeforeKillingSpreeEnd.Value;
+        }
+
+        public void initSoundsList(uint _sound1, uint _sound2, uint _sound3, uint _sound4, uint _sound5, uint _sound6, uint _sound7, uint _sound8, uint _sound9)
+        {
+            this.sound1 = _sound1;
+            this.sound2 = _sound2;
+            this.sound3 = _sound3;
+            this.sound4 = _sound4;
+            this.sound5 = _sound5;
+            this.sound6 = _sound6;
+            this.sound7 = _sound7;
+            this.sound8 = _sound8;
+            this.sound9 = _sound9;
+        }
+
+        public void FixedUpdate()
+        {
+            timeSinceLastKill += Time.fixedDeltaTime;
+            if (timeSinceLastKill >= timeBeforeKillingSpreeEnd)
+            {
+                killSpreeCount = 0;
+                currentSoundTypeId = 0;
+            }
+        }
+
+        private void PlaySound(uint eventid)
+        {
+
+            if ((currentSoundTypeId != eventid)&&(this.gameObject.GetComponent<CharacterBody>().master.GetComponent<PlayerCharacterMasterController>().networkUser.isLocalPlayer))
+            {
+                currentSoundTypeId = eventid;
+                AkSoundEngine.StopPlayingID(currentSoundId);
+                currentSoundId = AkSoundEngine.PostEvent(eventid, this.gameObject);
+
+            }
+        }
+
+        public void RegisterKill()
+        {
+            this.timeSinceLastKill = 0;
+            this.killSpreeCount++;
+            Debug.Log("Spree : " + killSpreeCount);
+
+            if (killSpreeCount == EpicKillStreaksAnnoncer.ConfigWrapperHeadshot.Value)
+            {
+                PlaySound(sound1);
+            }
+            else if (killSpreeCount == EpicKillStreaksAnnoncer.ConfigWrapperDoubleKill.Value)
+            {
+                PlaySound(sound2);
+            }
+            else if (killSpreeCount == EpicKillStreaksAnnoncer.ConfigWrapperTripleKill.Value)
+            {
+                PlaySound(sound3);
+            }
+            else if ((killSpreeCount >= EpicKillStreaksAnnoncer.ConfigWrapperMultiKill.Value) && (killSpreeCount < EpicKillStreaksAnnoncer.ConfigWrapperDominating.Value))
+            {
+                PlaySound(sound4);
+            }
+            else if ((killSpreeCount >= EpicKillStreaksAnnoncer.ConfigWrapperDominating.Value) && (killSpreeCount < EpicKillStreaksAnnoncer.ConfigWrapperRampage.Value))
+            {
+                PlaySound(sound5);
+            }
+            else if ((killSpreeCount >= EpicKillStreaksAnnoncer.ConfigWrapperRampage.Value) && (killSpreeCount < EpicKillStreaksAnnoncer.ConfigWrapperLudicrousKill.Value))
+            {
+                PlaySound(sound6);
+            }
+            else if ((killSpreeCount >= EpicKillStreaksAnnoncer.ConfigWrapperLudicrousKill.Value) && (killSpreeCount < EpicKillStreaksAnnoncer.ConfigWrapperGodLike.Value))
+            {
+                PlaySound(sound7);
+            }
+            else if ((killSpreeCount >= EpicKillStreaksAnnoncer.ConfigWrapperGodLike.Value) && (killSpreeCount < EpicKillStreaksAnnoncer.ConfigWrapperMonsterKill.Value))
+            {
+                PlaySound(sound8);
+                SendChat("is reaching God Like");
+            }
+            else if (killSpreeCount >= EpicKillStreaksAnnoncer.ConfigWrapperMonsterKill.Value)
+            {
+                PlaySound(sound9);
+                SendChat("MADE A M-M-MONSTER KILLLL !");
+            }
+        }
+
+        private void SendChat(string message)
+        {
+            if (NetworkServer.active)
+            {
+                Chat.AddMessage(this.gameObject.GetComponent<CharacterBody>().master.GetComponent<PlayerCharacterMasterController>().networkUser.userName + " " + message);
+            }
         }
     }
 }
