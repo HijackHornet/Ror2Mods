@@ -13,8 +13,7 @@
 
     public class QuickRestart : BaseUnityPlugin
     {
-        public static ConfigWrapper<string> QuickRestartConfigWrapperRestart
-        { get; set; }
+        public static ConfigWrapper<string> QuickRestartConfigWrapperRestart { get; set; }
 
         public static ConfigWrapper<string> QuickRestartConfigWrapperBack { get; set; }
 
@@ -28,14 +27,14 @@
         {
             QuickRestartConfigWrapperRestart = Config.Wrap<string>(
                 "Shortcut",
-                "Quick restart key",
+                "Quick_restart_key",
                 "Type the key you want to use as a shortcut to restart a run",
                 "V"
                 );
             QuickRestartConfigWrapperBack = Config.Wrap<string>(
                "Shortcut",
-                "Quick return to character selection key",
-                "Type the key you want to use as a shortcut to get everyyone back to the character selection menu",
+                "Quick_return_to_character_selection_key",
+                "Type the key you want to use as a shortcut to get everyone back to the character selection menu",
                 "B"
             );
             this.shortcut = (KeyCode)System.Enum.Parse(typeof(KeyCode), QuickRestartConfigWrapperRestart.Value);

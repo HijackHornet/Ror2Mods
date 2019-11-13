@@ -1,4 +1,4 @@
-﻿namespace EpicKillStreaksAnnoncer
+﻿namespace EpicKillStreaksAnnouncer
 {
     using AssetPlus;
     using BepInEx;
@@ -14,9 +14,9 @@
     [BepInDependency("com.bepis.r2api")]
     [BepInDependency("com.mistername.AssetPlus")]
 
-    [BepInPlugin("com.hijackhornet.epickillstreaksannoncer", "Epic KillStreaks Annoncer", "1.0")]
+    [BepInPlugin("com.hijackhornet.epickillstreaksannouncer", "Epic KillStreaks Announcer", "1.1.0")]
 
-    public class EpicKillStreaksAnnoncer : BaseUnityPlugin
+    public class EpicKillStreaksAnnouncer : BaseUnityPlugin
     {
         internal const uint Headshot = 2632074263;
 
@@ -66,6 +66,7 @@
             else
             {
                 UnityEngine.Debug.LogError("[EpicKillStreaksAnnoncer] Soundbank fetching failed");
+                Destroy(this);
             }
             SoundBanks.Add(soundbank);
             ConfigWrapperHeadshot = Config.Wrap<int>(
@@ -132,35 +133,105 @@
             On.RoR2.CharacterBody.Start += (orig, self) =>
             {
                 orig(self);
-                if ((self.master != null) && (self.master.GetComponent<PlayerCharacterMasterController>()))
+                if ((self.master != null) && (self.master.GetComponent<PlayerCharacterMasterController>() != null))
                 {
-                    Debug.Log("Found one player.");
-                    self.gameObject.AddComponent<Annoncer>().initSoundsList(Headshot, DoubleKill, TripleKill, MultiKill, Dominating, Rampage, LudicrousKill, GodLike, MonsterKill);
-                }
-            };
-            On.RoR2.GlobalEventManager.OnCharacterDeath += (orig, self, report) =>
-            {
-                CharacterMaster attacker = null;
-                if (report.attackerMaster)
-                {
-                    attacker = report.attackerMaster;
-                }
-                else if (report.attackerOwnerMaster)
-                {
-                    attacker = report.attackerOwnerMaster;
-                }
-                if (attacker != null)
-                {
-                    PlayerCharacterMasterController pc = null;
-                    pc = attacker.GetComponent<PlayerCharacterMasterController>();
-                    if (pc != null)
+                    if (NetworkServer.active)
                     {
-                        pc.master.GetBodyObject().GetComponent<Annoncer>().RegisterKill();
+                        self.gameObject.AddComponent<Announcer>().initSoundsList(Headshot, DoubleKill, TripleKill, MultiKill, Dominating, Rampage, LudicrousKill, GodLike, MonsterKill);
+                    }
+                    else if (self.master.GetComponent<PlayerCharacterMasterController>().networkUser.isLocalPlayer)
+                    {
+                        self.gameObject.AddComponent<Announcer>().initSoundsList(Headshot, DoubleKill, TripleKill, MultiKill, Dominating, Rampage, LudicrousKill, GodLike, MonsterKill);
                     }
                 }
-
-                orig(self, report);
             };
+
+            Run.onRunStartGlobal += Run_onRunStartGlobal;
+            Run.onRunDestroyGlobal += Run_onRunDestroyGlobal;
+        }
+
+        private void Run_onRunStartGlobal(Run obj)
+        {
+            if (NetworkServer.active)
+            {
+                RoR2.GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
+            }
+            else
+            {
+                RoR2.GlobalEventManager.onClientDamageNotified += GlobalEventManager_onClientDamageNotified;
+            }
+        }
+
+        private void Run_onRunDestroyGlobal(Run obj)
+        {
+            if (NetworkServer.active)
+            {
+                RoR2.GlobalEventManager.onCharacterDeathGlobal -= GlobalEventManager_onCharacterDeathGlobal;
+            }
+            else
+            {
+                RoR2.GlobalEventManager.onClientDamageNotified -= GlobalEventManager_onClientDamageNotified;
+            }
+        }
+
+        private void GlobalEventManager_onClientDamageNotified(DamageDealtMessage damageDealtMessage)
+        {
+            PlayerCharacterMasterController pmc = damageDealtMessage.attacker.GetComponent<CharacterBody>().master.GetComponent<PlayerCharacterMasterController>();
+            if (pmc != null)
+            {
+                if (pmc.networkUser.isLocalPlayer)
+                {
+                    Announcer announcer = damageDealtMessage.attacker.GetComponent<Announcer>();
+                    if (announcer != null)
+                    {
+                        if (damageDealtMessage.victim != null)
+                        {
+                            HealthComponent healthComp = damageDealtMessage.victim.GetComponent<HealthComponent>();
+                            if (healthComp != null)
+                            {
+                                if (healthComp.combinedHealth <= damageDealtMessage.damage)
+                                {
+                                    Debug.Log("Monster killed");
+                                    announcer.RegisterKill();
+                                    Debug.Log("Kill registered");
+                                }
+                                else
+                                {
+                                    Debug.Log("Hit! Damage = " + damageDealtMessage.damage + " on " + healthComp.combinedHealth + "/" + healthComp.fullCombinedHealth);
+                                    Debug.Log("------");
+                                }
+                            }
+                            else
+                            {
+                                Debug.LogWarning("Victim has no healthComp !");
+                            }
+
+                        }
+                        else
+                        {
+                            Debug.Log("Damage isnt toward a victim.");
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogError("Announcer not present on the localUser");
+                        return;
+                    }
+                }
+                else
+                {
+                    Debug.Log("The attacker isnt the local player");
+                }
+            }
+            else
+            {
+                Debug.Log("Damage origine isnt a player");
+            }
+        }
+
+        private void GlobalEventManager_onCharacterDeathGlobal(DamageReport damageReport)
+        {
+            damageReport.attacker.gameObject.GetComponent<Announcer>().RegisterKill();
         }
 
         internal byte[] LoadFile(string resourceName)
@@ -178,13 +249,15 @@
         }
     }
 
-    public class Annoncer : NetworkBehaviour
+    public class Announcer : NetworkBehaviour
     {
         private float timeBeforeKillingSpreeEnd = 3.0f;
 
         private float timeSinceLastKill = 0f;
 
         private int killSpreeCount = 0;
+
+        private bool isLocal = false;
 
         private uint currentSoundId = 0;
 
@@ -210,7 +283,20 @@
 
         public void Awake()
         {
-            timeBeforeKillingSpreeEnd = EpicKillStreaksAnnoncer.ConfigWrappertimeBeforeKillingSpreeEnd.Value;
+
+            timeBeforeKillingSpreeEnd = EpicKillStreaksAnnouncer.ConfigWrappertimeBeforeKillingSpreeEnd.Value;
+        }
+
+        public void Start()
+        {
+            if (!NetworkServer.active)
+            {
+                this.isLocal = true;
+            }
+            else if (this.gameObject.GetComponent<CharacterBody>().master.GetComponent<PlayerCharacterMasterController>().networkUser.isLocalPlayer)
+            {
+                this.isLocal = true;
+            }
         }
 
         public void initSoundsList(uint _sound1, uint _sound2, uint _sound3, uint _sound4, uint _sound5, uint _sound6, uint _sound7, uint _sound8, uint _sound9)
@@ -239,7 +325,7 @@
         private void PlaySound(uint eventid)
         {
 
-            if ((currentSoundTypeId != eventid)&&(this.gameObject.GetComponent<CharacterBody>().master.GetComponent<PlayerCharacterMasterController>().networkUser.isLocalPlayer))
+            if ((currentSoundTypeId != eventid) && (this.isLocal))
             {
                 currentSoundTypeId = eventid;
                 AkSoundEngine.StopPlayingID(currentSoundId);
@@ -252,42 +338,44 @@
         {
             this.timeSinceLastKill = 0;
             this.killSpreeCount++;
-            Debug.Log("Spree : " + killSpreeCount);
 
-            if (killSpreeCount == EpicKillStreaksAnnoncer.ConfigWrapperHeadshot.Value)
+            if (killSpreeCount == EpicKillStreaksAnnouncer.ConfigWrapperHeadshot.Value)
             {
                 PlaySound(sound1);
+
             }
-            else if (killSpreeCount == EpicKillStreaksAnnoncer.ConfigWrapperDoubleKill.Value)
+            else if (killSpreeCount == EpicKillStreaksAnnouncer.ConfigWrapperDoubleKill.Value)
             {
                 PlaySound(sound2);
             }
-            else if (killSpreeCount == EpicKillStreaksAnnoncer.ConfigWrapperTripleKill.Value)
+            else if (killSpreeCount == EpicKillStreaksAnnouncer.ConfigWrapperTripleKill.Value)
             {
                 PlaySound(sound3);
+                SendChat("made a triple kill... How lame !");
             }
-            else if ((killSpreeCount >= EpicKillStreaksAnnoncer.ConfigWrapperMultiKill.Value) && (killSpreeCount < EpicKillStreaksAnnoncer.ConfigWrapperDominating.Value))
+            else if ((killSpreeCount >= EpicKillStreaksAnnouncer.ConfigWrapperMultiKill.Value) && (killSpreeCount < EpicKillStreaksAnnouncer.ConfigWrapperDominating.Value))
             {
                 PlaySound(sound4);
             }
-            else if ((killSpreeCount >= EpicKillStreaksAnnoncer.ConfigWrapperDominating.Value) && (killSpreeCount < EpicKillStreaksAnnoncer.ConfigWrapperRampage.Value))
+            else if ((killSpreeCount >= EpicKillStreaksAnnouncer.ConfigWrapperDominating.Value) && (killSpreeCount < EpicKillStreaksAnnouncer.ConfigWrapperRampage.Value))
             {
                 PlaySound(sound5);
             }
-            else if ((killSpreeCount >= EpicKillStreaksAnnoncer.ConfigWrapperRampage.Value) && (killSpreeCount < EpicKillStreaksAnnoncer.ConfigWrapperLudicrousKill.Value))
+            else if ((killSpreeCount >= EpicKillStreaksAnnouncer.ConfigWrapperRampage.Value) && (killSpreeCount < EpicKillStreaksAnnouncer.ConfigWrapperLudicrousKill.Value))
             {
                 PlaySound(sound6);
             }
-            else if ((killSpreeCount >= EpicKillStreaksAnnoncer.ConfigWrapperLudicrousKill.Value) && (killSpreeCount < EpicKillStreaksAnnoncer.ConfigWrapperGodLike.Value))
+            else if ((killSpreeCount >= EpicKillStreaksAnnouncer.ConfigWrapperLudicrousKill.Value) && (killSpreeCount < EpicKillStreaksAnnouncer.ConfigWrapperGodLike.Value))
             {
                 PlaySound(sound7);
+                SendChat("just did a Ludicrous Kill");
             }
-            else if ((killSpreeCount >= EpicKillStreaksAnnoncer.ConfigWrapperGodLike.Value) && (killSpreeCount < EpicKillStreaksAnnoncer.ConfigWrapperMonsterKill.Value))
+            else if ((killSpreeCount >= EpicKillStreaksAnnouncer.ConfigWrapperGodLike.Value) && (killSpreeCount < EpicKillStreaksAnnouncer.ConfigWrapperMonsterKill.Value))
             {
                 PlaySound(sound8);
                 SendChat("is reaching God Like");
             }
-            else if (killSpreeCount >= EpicKillStreaksAnnoncer.ConfigWrapperMonsterKill.Value)
+            else if (killSpreeCount >= EpicKillStreaksAnnouncer.ConfigWrapperMonsterKill.Value)
             {
                 PlaySound(sound9);
                 SendChat("MADE A M-M-MONSTER KILLLL !");
@@ -298,7 +386,7 @@
         {
             if (NetworkServer.active)
             {
-                Chat.AddMessage(this.gameObject.GetComponent<CharacterBody>().master.GetComponent<PlayerCharacterMasterController>().networkUser.userName + " " + message);
+                R2API.Utils.ChatMessage.SendColored(this.gameObject.GetComponent<CharacterBody>().master.GetComponent<PlayerCharacterMasterController>().networkUser.GetNetworkPlayerName().GetResolvedName() + " " + message, "#FFC300");
             }
         }
     }

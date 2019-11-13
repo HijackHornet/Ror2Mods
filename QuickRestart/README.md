@@ -17,6 +17,7 @@ This mod does work in multiplayer even if you play with non modded users (using 
 
 ## Versions
  - 1.0.0 - Initial release
+ - 1.0.1 - Fixing the config file issue with mod managers. Please delete the config file from previous version.
 
 ## Contact
 I'm available on the ROR2 Modding discord server (@Hijack Hornet). Please send me feedback! This is my first mod so I would really appreciate it.
