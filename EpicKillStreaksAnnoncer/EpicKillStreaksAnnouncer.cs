@@ -1,8 +1,8 @@
 ﻿namespace EpicKillStreaksAnnouncer
 {
-    using AssetPlus;
     using BepInEx;
     using BepInEx.Configuration;
+    using R2API.AssetPlus;
     using RoR2;
     using System;
     using System.IO;
@@ -12,9 +12,7 @@
     using UnityEngine.Networking;
 
     [BepInDependency("com.bepis.r2api")]
-    [BepInDependency("com.mistername.AssetPlus")]
-
-    [BepInPlugin("com.hijackhornet.epickillstreaksannouncer", "Epic KillStreaks Announcer", "1.1.0")]
+    [BepInPlugin("com.hijackhornet.epickillstreaksannouncer", "Epic KillStreaks Announcer", "1.1.2")]
 
     public class EpicKillStreaksAnnouncer : BaseUnityPlugin
     {
@@ -36,25 +34,27 @@
 
         internal const uint MonsterKill = 2233416765;
 
-        public static ConfigWrapper<int> ConfigWrapperHeadshot { get; set; }
+        public static ConfigEntry<int> ConfigWrapperHeadshot { get; set; }
 
-        public static ConfigWrapper<int> ConfigWrapperDoubleKill { get; set; }
+        public static ConfigEntry<int> ConfigWrapperDoubleKill { get; set; }
 
-        public static ConfigWrapper<int> ConfigWrapperTripleKill { get; set; }
+        public static ConfigEntry<int> ConfigWrapperTripleKill { get; set; }
 
-        public static ConfigWrapper<int> ConfigWrapperMultiKill { get; set; }
+        public static ConfigEntry<int> ConfigWrapperMultiKill { get; set; }
 
-        public static ConfigWrapper<int> ConfigWrapperDominating { get; set; }
+        public static ConfigEntry<int> ConfigWrapperDominating { get; set; }
 
-        public static ConfigWrapper<int> ConfigWrapperRampage { get; set; }
+        public static ConfigEntry<int> ConfigWrapperRampage { get; set; }
 
-        public static ConfigWrapper<int> ConfigWrapperLudicrousKill { get; set; }
+        public static ConfigEntry<int> ConfigWrapperLudicrousKill { get; set; }
 
-        public static ConfigWrapper<int> ConfigWrapperGodLike { get; set; }
+        public static ConfigEntry<int> ConfigWrapperGodLike { get; set; }
 
-        public static ConfigWrapper<int> ConfigWrapperMonsterKill { get; set; }
+        public static ConfigEntry<int> ConfigWrapperMonsterKill { get; set; }
 
-        public static ConfigWrapper<float> ConfigWrappertimeBeforeKillingSpreeEnd { get; set; }
+        public static ConfigEntry<float> ConfigWrappertimeBeforeKillingSpreeEnd { get; set; }
+
+        public static ConfigEntry<bool> ConfigWrapperChatBroadcast { get; set; }
 
         internal void Awake()
         {
@@ -69,71 +69,77 @@
                 Destroy(this);
             }
             SoundBanks.Add(soundbank);
-            ConfigWrapperHeadshot = Config.Wrap<int>(
-                "Trigger Values",
+            ConfigWrapperHeadshot = Config.Bind<int>(
+                "TriggerValues",
                 "HeadShot",
-                "Choose at how many kills in a kill streak, this sound should trigger. -1 to desactivate.",
-                -1
+                -1,
+                "Choose at how many kills in a kill streak, this sound should trigger. -1 to desactivate."
                 );
-            ConfigWrapperDoubleKill = Config.Wrap<int>(
-                "Trigger Values",
+            ConfigWrapperDoubleKill = Config.Bind<int>(
+                "TriggerValues",
                 "DoubleKill",
-                "Choose at how many kills in a kill streak, this sound should trigger. -1 to desactivate.",
-                -1
+                -1,
+                "Choose at how many kills in a kill streak, this sound should trigger. -1 to desactivate."
                 );
-            ConfigWrapperTripleKill = Config.Wrap<int>(
-                "Trigger Values",
+            ConfigWrapperTripleKill = Config.Bind<int>(
+                "TriggerValues",
                 "TripleKill",
-                "Choose at how many kills in a kill streak, this sound should trigger. -1 to desactivate.",
-                3
+                3,
+                "Choose at how many kills in a kill streak, this sound should trigger. -1 to desactivate."
                 );
-            ConfigWrapperMultiKill = Config.Wrap<int>(
-                "Trigger Values",
+            ConfigWrapperMultiKill = Config.Bind<int>(
+                "TriggerValues",
                 "MultiKill",
-                "Choose at how many kills in a kill streak, this sound should trigger. -1 to desactivate.",
-                5
+                5,
+                "Choose at how many kills in a kill streak, this sound should trigger. -1 to desactivate."
                 );
-            ConfigWrapperDominating = Config.Wrap<int>(
-                "Trigger Values",
+            ConfigWrapperDominating = Config.Bind<int>(
+                "TriggerValues",
                 "Domination",
-                "Choose at how many kills in a kill streak, this sound should trigger. -1 to desactivate.",
-                8
+                8,
+                "Choose at how many kills in a kill streak, this sound should trigger. -1 to desactivate."
                 );
-            ConfigWrapperRampage = Config.Wrap<int>(
-                "Trigger Values",
+            ConfigWrapperRampage = Config.Bind<int>(
+                "TriggerValues",
                 "Rampage",
-                "Choose at how many kills in a kill streak, this sound should trigger. -1 to desactivate.",
-                12
+                12,
+                "Choose at how many kills in a kill streak, this sound should trigger. -1 to desactivate."
                 );
-            ConfigWrapperLudicrousKill = Config.Wrap<int>(
-                "Trigger Values",
+            ConfigWrapperLudicrousKill = Config.Bind<int>(
+                "TriggerValues",
                 "LudicrousKill",
-                "Choose at how many kills in a kill streak, this sound should trigger. -1 to desactivate.",
-                16
+                16,
+                "Choose at how many kills in a kill streak, this sound should trigger. -1 to desactivate."
                 );
-            ConfigWrapperGodLike = Config.Wrap<int>(
-                "Trigger Values",
+            ConfigWrapperGodLike = Config.Bind<int>(
+                "TriggerValues",
                 "GodLike",
-                "Choose at how many kills in a kill streak, this sound should trigger. -1 to desactivate.",
-                20
+                20,
+                 "Choose at how many kills in a kill streak, this sound should trigger. -1 to desactivate."
                 );
-            ConfigWrapperMonsterKill = Config.Wrap<int>(
-                "Trigger Values",
+            ConfigWrapperMonsterKill = Config.Bind<int>(
+                "TriggerValues",
                 "MonsterKill",
-                "Choose at how many kills in a kill streak, this sound should trigger. -1 to desactivate.",
-                25
+                25,
+                "Choose at how many kills in a kill streak, this sound should trigger. -1 to desactivate."
                 );
-            ConfigWrappertimeBeforeKillingSpreeEnd = Config.Wrap<float>(
+            ConfigWrappertimeBeforeKillingSpreeEnd = Config.Bind<float>(
                 "Timer",
                 "MaxTimeToEnd",
-                "How much seconds are needed before the killing streak reset",
-                3.0f
+                3.0f,
+                "How much seconds are needed before the killing streak reset"
+                );
+            ConfigWrapperChatBroadcast = Config.Bind<bool>(
+                "Host",
+                "BroadcastInChat",
+                true,
+                "Do you want (when hosting) a message to be sent into the chat when one user reached GodLike or MonsterKill ?"
                 );
 
             On.RoR2.CharacterBody.Start += (orig, self) =>
             {
                 orig(self);
-                if ((self.master != null) && (self.master.GetComponent<PlayerCharacterMasterController>() != null))
+                if (self.master && self.master.GetComponent<PlayerCharacterMasterController>())
                 {
                     if (NetworkServer.active)
                     {
@@ -177,39 +183,47 @@
         private void GlobalEventManager_onClientDamageNotified(DamageDealtMessage damageDealtMessage)
         {
             PlayerCharacterMasterController pmc = damageDealtMessage.attacker.GetComponent<CharacterBody>().master.GetComponent<PlayerCharacterMasterController>();
-            if (pmc != null)
+            if (pmc)
             {
                 if (pmc.networkUser.isLocalPlayer)
                 {
                     Announcer announcer = damageDealtMessage.attacker.GetComponent<Announcer>();
-                    if (announcer != null)
+                    if (announcer)
                     {
-                        if (damageDealtMessage.victim != null)
+                        if (damageDealtMessage.victim)
                         {
                             HealthComponent healthComp = damageDealtMessage.victim.GetComponent<HealthComponent>();
-                            if (healthComp != null)
+                            if (healthComp)
                             {
                                 if (healthComp.combinedHealth <= damageDealtMessage.damage)
                                 {
-                                    Debug.Log("Monster killed");
+
                                     announcer.RegisterKill();
+#if DEBUG
                                     Debug.Log("Kill registered");
+#endif
                                 }
                                 else
                                 {
+#if DEBUG
                                     Debug.Log("Hit! Damage = " + damageDealtMessage.damage + " on " + healthComp.combinedHealth + "/" + healthComp.fullCombinedHealth);
                                     Debug.Log("------");
+#endif
                                 }
                             }
                             else
                             {
+#if DEBUG
                                 Debug.LogWarning("Victim has no healthComp !");
+#endif
                             }
 
                         }
                         else
                         {
+#if DEBUG
                             Debug.Log("Damage isnt toward a victim.");
+#endif
                         }
                     }
                     else
@@ -220,18 +234,28 @@
                 }
                 else
                 {
+#if DEBUG
                     Debug.Log("The attacker isnt the local player");
+#endif
                 }
             }
             else
             {
+#if DEBUG
                 Debug.Log("Damage origine isnt a player");
+#endif
             }
         }
 
+        private DamageReport damageReportRecieved = null;
+
         private void GlobalEventManager_onCharacterDeathGlobal(DamageReport damageReport)
         {
-            damageReport.attacker.gameObject.GetComponent<Announcer>().RegisterKill();
+            if (damageReport != this.damageReportRecieved)
+            {
+                this.damageReportRecieved = damageReport;
+                damageReport.attacker.gameObject.GetComponent<Announcer>().RegisterKill();
+            }
         }
 
         internal byte[] LoadFile(string resourceName)
@@ -283,7 +307,6 @@
 
         public void Awake()
         {
-
             timeBeforeKillingSpreeEnd = EpicKillStreaksAnnouncer.ConfigWrappertimeBeforeKillingSpreeEnd.Value;
         }
 
@@ -337,8 +360,14 @@
         public void RegisterKill()
         {
             this.timeSinceLastKill = 0;
-            this.killSpreeCount++;
 
+            this.killSpreeCount++;
+#if DEBUG
+            if (NetworkServer.active)
+            {
+                Debug.Log("Kill registerd " + this.killSpreeCount + " On " + this.gameObject.GetComponent<CharacterBody>().GetUserName());
+            }
+#endif
             if (killSpreeCount == EpicKillStreaksAnnouncer.ConfigWrapperHeadshot.Value)
             {
                 PlaySound(sound1);
@@ -351,31 +380,33 @@
             else if (killSpreeCount == EpicKillStreaksAnnouncer.ConfigWrapperTripleKill.Value)
             {
                 PlaySound(sound3);
+#if DEBUG
                 SendChat("made a triple kill... How lame !");
+#endif
             }
-            else if ((killSpreeCount >= EpicKillStreaksAnnouncer.ConfigWrapperMultiKill.Value) && (killSpreeCount < EpicKillStreaksAnnouncer.ConfigWrapperDominating.Value))
+            else if (killSpreeCount == EpicKillStreaksAnnouncer.ConfigWrapperMultiKill.Value)
             {
                 PlaySound(sound4);
             }
-            else if ((killSpreeCount >= EpicKillStreaksAnnouncer.ConfigWrapperDominating.Value) && (killSpreeCount < EpicKillStreaksAnnouncer.ConfigWrapperRampage.Value))
+            else if (killSpreeCount == EpicKillStreaksAnnouncer.ConfigWrapperDominating.Value)
             {
                 PlaySound(sound5);
             }
-            else if ((killSpreeCount >= EpicKillStreaksAnnouncer.ConfigWrapperRampage.Value) && (killSpreeCount < EpicKillStreaksAnnouncer.ConfigWrapperLudicrousKill.Value))
+            else if (killSpreeCount == EpicKillStreaksAnnouncer.ConfigWrapperRampage.Value)
             {
                 PlaySound(sound6);
             }
-            else if ((killSpreeCount >= EpicKillStreaksAnnouncer.ConfigWrapperLudicrousKill.Value) && (killSpreeCount < EpicKillStreaksAnnouncer.ConfigWrapperGodLike.Value))
+            else if (killSpreeCount == EpicKillStreaksAnnouncer.ConfigWrapperLudicrousKill.Value)
             {
                 PlaySound(sound7);
                 SendChat("just did a Ludicrous Kill");
             }
-            else if ((killSpreeCount >= EpicKillStreaksAnnouncer.ConfigWrapperGodLike.Value) && (killSpreeCount < EpicKillStreaksAnnouncer.ConfigWrapperMonsterKill.Value))
+            else if (killSpreeCount == EpicKillStreaksAnnouncer.ConfigWrapperGodLike.Value)
             {
                 PlaySound(sound8);
                 SendChat("is reaching God Like");
             }
-            else if (killSpreeCount >= EpicKillStreaksAnnouncer.ConfigWrapperMonsterKill.Value)
+            else if (killSpreeCount == EpicKillStreaksAnnouncer.ConfigWrapperMonsterKill.Value)
             {
                 PlaySound(sound9);
                 SendChat("MADE A M-M-MONSTER KILLLL !");
@@ -384,7 +415,7 @@
 
         private void SendChat(string message)
         {
-            if (NetworkServer.active)
+            if (NetworkServer.active && EpicKillStreaksAnnouncer.ConfigWrapperChatBroadcast.Value)
             {
                 R2API.Utils.ChatMessage.SendColored(this.gameObject.GetComponent<CharacterBody>().master.GetComponent<PlayerCharacterMasterController>().networkUser.GetNetworkPlayerName().GetResolvedName() + " " + message, "#FFC300");
             }

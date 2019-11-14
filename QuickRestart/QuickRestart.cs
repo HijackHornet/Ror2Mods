@@ -9,47 +9,41 @@
 
     [BepInDependency("com.bepis.r2api")]
 
-    [BepInPlugin("com.hijackhornet.quickrestart", "Quick Restart", "1.0")]
+    [BepInPlugin("com.hijackhornet.quickrestart", "Quick Restart", "1.0.2")]
 
     public class QuickRestart : BaseUnityPlugin
     {
-        public static ConfigWrapper<string> QuickRestartConfigWrapperRestart { get; set; }
+        public static ConfigEntry<KeyboardShortcut> QuickRestartConfigWrapperRestart { get; set; }
 
-        public static ConfigWrapper<string> QuickRestartConfigWrapperBack { get; set; }
+        public static ConfigEntry<KeyboardShortcut> QuickRestartConfigWrapperBack { get; set; }
 
         private bool isInChatBox = false;
 
-        private KeyCode shortcut;
-
-        private KeyCode shortcut2;
-
         public void Awake()
         {
-            QuickRestartConfigWrapperRestart = Config.Wrap<string>(
+            QuickRestartConfigWrapperRestart = Config.Bind<KeyboardShortcut>(
                 "Shortcut",
                 "Quick_restart_key",
-                "Type the key you want to use as a shortcut to restart a run",
-                "V"
+                new KeyboardShortcut(KeyCode.V),
+                "Type the key you want to use as a shortcut to restart a run"
                 );
-            QuickRestartConfigWrapperBack = Config.Wrap<string>(
+            QuickRestartConfigWrapperBack = Config.Bind<KeyboardShortcut>(
                "Shortcut",
                 "Quick_return_to_character_selection_key",
-                "Type the key you want to use as a shortcut to get everyone back to the character selection menu",
-                "B"
+                 new KeyboardShortcut(KeyCode.B),
+                "Type the key you want to use as a shortcut to get everyone back to the character selection menu"
             );
-            this.shortcut = (KeyCode)System.Enum.Parse(typeof(KeyCode), QuickRestartConfigWrapperRestart.Value);
-            this.shortcut2 = (KeyCode)System.Enum.Parse(typeof(KeyCode), QuickRestartConfigWrapperBack.Value);
             On.RoR2.UI.ChatBox.FocusInputField += (orig, self) => { orig(self); isInChatBox = true; };
             On.RoR2.UI.ChatBox.UnfocusInputField += (orig, self) => { orig(self); isInChatBox = false; };
         }
 
         public void Update()
         {
-            if (Input.GetKeyUp(shortcut) && RoR2.NetworkSession.instance && NetworkServer.active && !this.isInChatBox && (SceneManager.GetActiveScene().name != "lobby"))
+            if (QuickRestartConfigWrapperRestart.Value.IsDown() && RoR2.NetworkSession.instance && NetworkServer.active && !this.isInChatBox && (SceneManager.GetActiveScene().name != "lobby"))
             {
                 RestartRun();
             }
-            else if (Input.GetKeyUp(shortcut2) && RoR2.NetworkSession.instance && NetworkServer.active && !this.isInChatBox && (SceneManager.GetActiveScene().name != "lobby"))
+            else if (QuickRestartConfigWrapperBack.Value.IsDown() && RoR2.NetworkSession.instance && NetworkServer.active && !this.isInChatBox && (SceneManager.GetActiveScene().name != "lobby"))
             {
                 GoBackToCharacterSelection();
             }
