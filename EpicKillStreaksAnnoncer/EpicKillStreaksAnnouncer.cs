@@ -3,6 +3,7 @@
     using BepInEx;
     using BepInEx.Configuration;
     using R2API.AssetPlus;
+    using R2API.Utils;
     using RoR2;
     using System;
     using System.IO;
@@ -11,8 +12,8 @@
     using UnityEngine;
     using UnityEngine.Networking;
 
-    [BepInDependency("com.bepis.r2api")]
-    [BepInPlugin("com.hijackhornet.epickillstreaksannouncer", "Epic KillStreaks Announcer", "1.1.2")]
+    [R2APISubmoduleDependency("AssetPlus")]
+    [BepInPlugin("com.hijackhornet.epickillstreaksannouncer", "Epic KillStreaks Announcer", "1.1.3")]
 
     public class EpicKillStreaksAnnouncer : BaseUnityPlugin
     {
@@ -182,7 +183,12 @@
 
         private void GlobalEventManager_onClientDamageNotified(DamageDealtMessage damageDealtMessage)
         {
-            PlayerCharacterMasterController pmc = damageDealtMessage.attacker.GetComponent<CharacterBody>().master.GetComponent<PlayerCharacterMasterController>();
+            PlayerCharacterMasterController pmc;
+            try
+            {
+                pmc = damageDealtMessage.attacker.GetComponent<CharacterBody>().master.GetComponent<PlayerCharacterMasterController>();
+            }
+            catch { return; }
             if (pmc)
             {
                 if (pmc.networkUser.isLocalPlayer)
@@ -254,7 +260,15 @@
             if (damageReport != this.damageReportRecieved)
             {
                 this.damageReportRecieved = damageReport;
-                damageReport.attacker.gameObject.GetComponent<Announcer>().RegisterKill();
+                if (damageReport.attacker && damageReport.attacker.GetComponent<Announcer>())
+                {
+                    damageReport.attacker.GetComponent<Announcer>().RegisterKill();
+                }
+                else if (damageReport.attackerOwnerMaster && damageReport.attackerOwnerMaster.GetBodyObject() && damageReport.attackerOwnerMaster.GetBodyObject().GetComponent<Announcer>())
+                {
+                    damageReport.attackerOwnerMaster.GetBodyObject().GetComponent<Announcer>().RegisterKill();
+                }
+
             }
         }
 

@@ -1,0 +1,22 @@
+# Quick Restart
+Are you tired of going through all the menus when you just want to restart your run asap ? Then this mod is for you ! 
+
+## Features
+This mod add two simple (and configurable) keyboard shortcuts to the game :
+
+ - Press V to restart a new run with the same character/loadout
+ - Press B to get back to character selection
+## Config
+You can change the default key shortcutes by going into the "Risk of Rain 2\BepInEx\config" and editing the file named "com.hijackhornet.quickrestart.cfg"
+
+## Multiplayer
+This mod does work in multiplayer even if you play with non modded users (using steam Build I D for instance). However, only the host need to have this mod installed, and only him can trigger the restart/return to character select commands.
+
+## Planned features
+ - Add a custom button in the pause menu
+
+## Versions
+ - 1.0.0 - Initial release
+
+## Contact
+I'm available on the ROR2 Modding discord server (@Hijack Hornet). Please send me feedbacks ! This is my first mod so I would really appreciate it.

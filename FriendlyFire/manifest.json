@@ -1,0 +1,10 @@
+{
+    "name": "FriendlyFire",
+    "version_number": "1.0.0",
+    "website_url": "",
+    "description": "Restart a run with a simple key !",
+    "dependencies": [
+        "bbepis-BepInExPack-3.0.0",
+		"tristanmcpherson-R2API-2.3.0"
+    ]
+}

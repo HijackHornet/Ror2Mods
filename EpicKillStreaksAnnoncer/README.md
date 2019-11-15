@@ -41,6 +41,7 @@ If you are hosting the game however, you are also tracking other players killstr
  - 1.1.0 - A LOT of rework on the mod. Like i almost remade it completly. But now it works in multiplayer !
  - 1.1.1 - Small patch to allow you to set any value on the config file for killstreaks. So now you can reorder or deasctivate any sound. No need to update if you don't change the default values.
  - 1.1.2 - Updating to the lastest BepinEx, R2API and add compatibility with ConfigManager, removed AssetPlus dependency
+ - 1.1.3 - Fix : Minion kills were not counted & monster suicides were blocking the port to 99%.
 
 ## Contact
 I'm available on the ROR2 Modding discord server (@Hijack Hornet). 
