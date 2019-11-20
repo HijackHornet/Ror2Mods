@@ -1,0 +1,10 @@
+{
+    "name": "SillyMemeSounds",
+    "version_number": "1.0.0",
+    "website_url": "mailto:northriver@laposte.net",
+    "description": "Add or replace a lot of sounds by meme sounds. No Earrape.",
+    "dependencies": [
+        "bbepis-BepInExPack-3.0.0",
+		"tristanmcpherson-R2API-2.3.0"
+    ]
+}

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{9FEB1E10-20FC-4490-82A2-355156024494}" SchemaVersion="89">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{9FEB1E10-20FC-4490-82A2-355156024494}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="OnDeath" ID="{0F05A042-9327-4897-88AC-B2DDCC7FDAF8}">
+					<ChildrenList>
+						<Action Name="" ID="{158634D3-FC53-49DA-BA60-8B6AB28012F9}" ShortID="500052902">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Death" ID="{53CA278A-CDFB-4AFF-B6F4-79D5BD29F207}" WorkUnitID="{E44C0F0B-12BD-47FD-B06A-7A599AEF8CDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="OnRunStart" ID="{9D541339-DC17-4D8A-BA67-66192E375C8F}">
+					<ChildrenList>
+						<Action Name="" ID="{C3663E78-1D04-4E33-ACFC-E52DDF8B6A19}" ShortID="580540889">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+								<Property Name="Delay" Type="Real64" Value="1">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{679B6FDA-E8F7-4E10-9B18-8ED4A816F0C0}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Start" ID="{FAD4724E-AC67-4E39-8202-E97B62B4ADAB}" WorkUnitID="{E44C0F0B-12BD-47FD-B06A-7A599AEF8CDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="OnRedItemPickUp" ID="{F82319F8-3EB1-4C1F-9F4E-65411A5C8119}">
+					<ChildrenList>
+						<Action Name="" ID="{F0010F67-0F6C-4CBD-82F0-7C019FB923DF}" ShortID="366364621">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RedPickUp" ID="{4725ED51-BBD5-4BFF-9407-5C0B182E3C11}" WorkUnitID="{E44C0F0B-12BD-47FD-B06A-7A599AEF8CDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="OnDamageHit" ID="{32562F5C-072B-466D-A1E2-F5596633B8BB}">
+					<ChildrenList>
+						<Action Name="" ID="{15AB680B-7949-4F9F-9825-10387C4B8444}" ShortID="386200732">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="THROWING KNIFE HITMARKER" ID="{6C1E423A-541A-4F5A-9845-6FEC450F9FCB}" WorkUnitID="{E44C0F0B-12BD-47FD-B06A-7A599AEF8CDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="OnDiosRevive" ID="{C1C9D951-FF70-4789-8770-597272C57E7F}">
+					<ChildrenList>
+						<Action Name="" ID="{49BEB900-C3B4-4AB5-AB66-0F34341F4FDD}" ShortID="991290790">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="ARNOLD I'LL BE BACK" ID="{2AD58616-1D60-4C50-BFCB-03260424D0A4}" WorkUnitID="{E44C0F0B-12BD-47FD-B06A-7A599AEF8CDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="OnExplosion" ID="{286893B3-07C7-4C7E-B14E-F809705BDBFE}">
+					<ChildrenList>
+						<Action Name="" ID="{F8C8B8FA-9CB7-4315-BD77-DFE6D9E6993C}" ShortID="936294295">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BOOM, BIG SHAQ" ID="{B5FFD32E-6003-4297-966E-2C7682649C3A}" WorkUnitID="{E44C0F0B-12BD-47FD-B06A-7A599AEF8CDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="OnKeyPickUp" ID="{380454FD-6D70-41CF-928F-4B9EE0CB55F9}">
+					<ChildrenList>
+						<Action Name="" ID="{BAC9444E-9B74-45FC-8FF4-1E8AA7E505D2}" ShortID="839460383">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="HOMER SIMPSON LAUGH" ID="{671C8EEC-EA54-4E79-8CEF-121560189E38}" WorkUnitID="{E44C0F0B-12BD-47FD-B06A-7A599AEF8CDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="OnMoveItemPicked" ID="{D99720D3-FDC4-4A61-9A9E-387DA5379A98}">
+					<ChildrenList>
+						<Action Name="" ID="{02228238-46B4-494D-AD50-26A2ACB5E7E4}" ShortID="1020653354">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+								<Property Name="Probability" Type="Real64" Value="10"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="IM FAST AS F___ BOI" ID="{AA54C13C-4691-4EEA-96C9-D38D21C3B19E}" WorkUnitID="{E44C0F0B-12BD-47FD-B06A-7A599AEF8CDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="OnHeavyDamageTaken" ID="{378AD351-8B45-4F9D-B5AA-63A8AE851C5D}">
+					<ChildrenList>
+						<Action Name="" ID="{7ABC23AB-85F8-4FD6-8CFD-CDEF1F59681D}" ShortID="111159601">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="HeavyDamagedTaken" ID="{44893EBD-3774-4812-88E3-0C6273C20463}" WorkUnitID="{E44C0F0B-12BD-47FD-B06A-7A599AEF8CDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="OnLobbyReady" ID="{D149111C-F07B-42EC-A9BD-2C37C607B202}">
+					<ChildrenList>
+						<Action Name="" ID="{8087B826-7EB2-4945-B250-36A221A45F76}" ShortID="566482716">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="NOW WE PLAY THE WAITING GAME" ID="{EE7FCC49-6CCF-42F3-9A07-C4155654CB64}" WorkUnitID="{E44C0F0B-12BD-47FD-B06A-7A599AEF8CDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="OnWelcomeScreen" ID="{7F4932B2-F51F-47C2-BE5A-1192694121E0}">
+					<ChildrenList>
+						<Action Name="" ID="{1382F096-16F4-41FB-8AC7-545426A30EBB}" ShortID="645754742">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+								<Property Name="Probability" Type="Real64" Value="20"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="OMG WHO THE HELL CARES" ID="{7B286B44-AA11-4E1D-A3D9-A7CF1212606D}" WorkUnitID="{E44C0F0B-12BD-47FD-B06A-7A599AEF8CDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="OnHuntressUltimateArrowShot" ID="{1EA1E0A5-CDD9-4C05-9C5D-9906BF794BC2}">
+					<ChildrenList>
+						<Action Name="" ID="{A786DAB1-65B6-4D6A-9548-9C0E65FF98DA}" ShortID="406533550">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+								<Property Name="Probability" Type="Real64" Value="5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="PEW" ID="{E355D3BC-777D-47D4-AD38-293ADF1A58BA}" WorkUnitID="{E44C0F0B-12BD-47FD-B06A-7A599AEF8CDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="OnStageLeaving" ID="{3ACE8725-9F55-49D4-B418-D62BCDF24D9E}">
+					<ChildrenList>
+						<Action Name="" ID="{AB271EE3-4F07-4A52-BC8D-73FE0A888FDE}" ShortID="231857390">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="StageLeaving" ID="{6ACC940F-F9A1-4DA6-AB7D-7C525B7F8245}" WorkUnitID="{E44C0F0B-12BD-47FD-B06A-7A599AEF8CDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="OnMultiplayerLastOneAlive" ID="{6147E74E-B495-44F4-9B34-C370356FA606}">
+					<ChildrenList>
+						<Action Name="" ID="{ED051241-4DEE-438B-9175-29B6A3082197}" ShortID="141898626">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="YOU'RE THE LAST ONE, COMPLETE THE MISSION" ID="{811857CA-97B2-49B7-8257-748CF8B7BCCB}" WorkUnitID="{E44C0F0B-12BD-47FD-B06A-7A599AEF8CDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="OnVictory" ID="{719EC0F5-6D6B-4C6E-BEBC-979D8684036C}">
+					<ChildrenList>
+						<Action Name="" ID="{58671EA1-D964-49FA-9FEB-C6D3CD4B7634}" ShortID="669397318">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Victory" ID="{3DDD6208-F2DE-410E-91D7-EB02BB5F15F8}" WorkUnitID="{E44C0F0B-12BD-47FD-B06A-7A599AEF8CDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="OnLoaderChargeCharging" ID="{B524A25D-FCC0-4558-A480-E9247154E182}">
+					<ChildrenList>
+						<Action Name="" ID="{81C04603-7E77-46E9-A824-26603FBD927C}" ShortID="176269715">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Falcon___Punch-1" ID="{C71AD90D-B009-479B-89DD-9EFE138A042D}" WorkUnitID="{E44C0F0B-12BD-47FD-B06A-7A599AEF8CDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="OnLoaderChargeRelease" ID="{7CBD5807-94F0-41C1-8952-A34982EF57A8}">
+					<ChildrenList>
+						<Action Name="" ID="{7AFC212C-1FC9-4DBE-9B88-069FC8474E4A}" ShortID="377570714">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Falcon___Punch-2" ID="{2EB51C4D-EAC0-4AF0-B0EF-48A047C9D321}" WorkUnitID="{E44C0F0B-12BD-47FD-B06A-7A599AEF8CDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="OnHuntressSelectedInMenu" ID="{016440E3-ABBB-4007-B5EB-17052C80BC51}">
+					<ChildrenList>
+						<Action Name="" ID="{4D45293E-42B3-4873-AD58-605E2A8130D7}" ShortID="1026671801">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+								<Property Name="Probability" Type="Real64" Value="10"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="gta-san-andreas-ah-shit-here-we-go-again" ID="{7EF41A44-329F-47FD-8DD7-714D6121DD86}" WorkUnitID="{E44C0F0B-12BD-47FD-B06A-7A599AEF8CDC}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

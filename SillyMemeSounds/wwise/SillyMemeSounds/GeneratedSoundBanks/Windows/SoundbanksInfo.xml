@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="132">
+	<RootPaths>
+		<ProjectRoot>D:\Projets\Ror2Mods\SillyMemeSounds\wwise\SillyMemeSounds\</ProjectRoot>
+		<SourceFilesRoot>D:\Projets\Ror2Mods\SillyMemeSounds\wwise\SillyMemeSounds\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>D:\Projets\Ror2Mods\SillyMemeSounds\wwise\SillyMemeSounds\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>D:\Projets\Ror2Mods\SillyMemeSounds\wwise\SillyMemeSounds\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="1661994096" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\SoundBank</ObjectPath>
+			<ShortName>SoundBank</ShortName>
+			<Path>SoundBank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2600171160" Name="OnDamageHit" ObjectPath="\Events\Default Work Unit\OnDamageHit"/>
+				<Event Id="2598090648" Name="OnDeath" ObjectPath="\Events\Default Work Unit\OnDeath"/>
+				<Event Id="4072839998" Name="OnDiosRevive" ObjectPath="\Events\Default Work Unit\OnDiosRevive"/>
+				<Event Id="2131585375" Name="OnExplosion" ObjectPath="\Events\Default Work Unit\OnExplosion"/>
+				<Event Id="1966329801" Name="OnHeavyDamageTaken" ObjectPath="\Events\Default Work Unit\OnHeavyDamageTaken"/>
+				<Event Id="334758607" Name="OnHuntressSelectedInMenu" ObjectPath="\Events\Default Work Unit\OnHuntressSelectedInMenu"/>
+				<Event Id="948171580" Name="OnHuntressUltimateArrowShot" ObjectPath="\Events\Default Work Unit\OnHuntressUltimateArrowShot"/>
+				<Event Id="1482489027" Name="OnKeyPickUp" ObjectPath="\Events\Default Work Unit\OnKeyPickUp"/>
+				<Event Id="2079747858" Name="OnLoaderChargeCharging" ObjectPath="\Events\Default Work Unit\OnLoaderChargeCharging"/>
+				<Event Id="3259047430" Name="OnLoaderChargeRelease" ObjectPath="\Events\Default Work Unit\OnLoaderChargeRelease"/>
+				<Event Id="1091271883" Name="OnLobbyReady" ObjectPath="\Events\Default Work Unit\OnLobbyReady"/>
+				<Event Id="3567026048" Name="OnMoveItemPicked" ObjectPath="\Events\Default Work Unit\OnMoveItemPicked"/>
+				<Event Id="2561528917" Name="OnMultiplayerLastOneAlive" ObjectPath="\Events\Default Work Unit\OnMultiplayerLastOneAlive"/>
+				<Event Id="1660580786" Name="OnRedItemPickUp" ObjectPath="\Events\Default Work Unit\OnRedItemPickUp"/>
+				<Event Id="2053534051" Name="OnRunStart" ObjectPath="\Events\Default Work Unit\OnRunStart"/>
+				<Event Id="89815316" Name="OnStageLeaving" ObjectPath="\Events\Default Work Unit\OnStageLeaving"/>
+				<Event Id="1840658428" Name="OnVictory" ObjectPath="\Events\Default Work Unit\OnVictory"/>
+				<Event Id="3148788086" Name="OnWelcomeScreen" ObjectPath="\Events\Default Work Unit\OnWelcomeScreen"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="54587247" Language="SFX">
+					<ShortName>Nouveau dossier\tf_nemesis(1).wav</ShortName>
+					<Path>SFX\Nouveau dossier\tf_nemesis(1)_56D34C19.wem</Path>
+				</File>
+				<File Id="97424260" Language="SFX">
+					<ShortName>Nouveau dossier\[Sound Effect] Knuckles - Oh No!.wav</ShortName>
+					<Path>SFX\Nouveau dossier\[Sound Effect] Knuckles - Oh No!_56D34C19.wem</Path>
+				</File>
+				<File Id="111780071" Language="SFX">
+					<ShortName>SFX\WHAT... WHAT THE F.....wav</ShortName>
+					<Path>SFX\SFX\WHAT... WHAT THE F...._56D34C19.wem</Path>
+				</File>
+				<File Id="125395390" Language="SFX">
+					<ShortName>SFX\MARIO OOF.wav</ShortName>
+					<Path>SFX\SFX\MARIO OOF_56D34C19.wem</Path>
+				</File>
+				<File Id="139893677" Language="SFX">
+					<ShortName>SFX\OOF #2.wav</ShortName>
+					<Path>SFX\SFX\OOF #2_56D34C19.wem</Path>
+				</File>
+				<File Id="141322666" Language="SFX">
+					<ShortName>SFX\IT'S ONLY A GAME, WHY YOU HAVE TO BE MAD.wav</ShortName>
+					<Path>SFX\SFX\IT'S ONLY A GAME, WHY YOU HAVE TO BE MAD_56D34C19.wem</Path>
+				</File>
+				<File Id="172199777" Language="SFX">
+					<ShortName>SFX\SPONGEBOB TIME CARDS - UHH.wav</ShortName>
+					<Path>SFX\SFX\SPONGEBOB TIME CARDS - UHH_56D34C19.wem</Path>
+				</File>
+				<File Id="178322819" Language="SFX">
+					<ShortName>Nouveau dossier\HEAVENLY CHOIR.wav</ShortName>
+					<Path>SFX\Nouveau dossier\HEAVENLY CHOIR_56D34C19.wem</Path>
+				</File>
+				<File Id="193170231" Language="SFX">
+					<ShortName>SFX\TA DAHH.wav</ShortName>
+					<Path>SFX\SFX\TA DAHH_56D34C19.wem</Path>
+				</File>
+				<File Id="193871134" Language="SFX">
+					<ShortName>SFX\WINDOWS XP START UP.wav</ShortName>
+					<Path>SFX\SFX\WINDOWS XP START UP_56D34C19.wem</Path>
+				</File>
+				<File Id="196852413" Language="SFX">
+					<ShortName>SFX\COD ZOMBIES NEW ROUND.wav</ShortName>
+					<Path>SFX\SFX\COD ZOMBIES NEW ROUND_56D34C19.wem</Path>
+				</File>
+				<File Id="232097957" Language="SFX">
+					<ShortName>SFX\NO GOD PLEASE NO.wav</ShortName>
+					<Path>SFX\SFX\NO GOD PLEASE NO_56D34C19.wem</Path>
+				</File>
+				<File Id="249405103" Language="SFX">
+					<ShortName>SFX\I'M TOO WEAK.wav</ShortName>
+					<Path>SFX\SFX\I'M TOO WEAK_56D34C19.wem</Path>
+				</File>
+				<File Id="270322467" Language="SFX">
+					<ShortName>SFX\HA GOT EMM.wav</ShortName>
+					<Path>SFX\SFX\HA GOT EMM_56D34C19.wem</Path>
+				</File>
+				<File Id="278993726" Language="SFX">
+					<ShortName>SFX\BRUH.wav</ShortName>
+					<Path>SFX\SFX\BRUH_56D34C19.wem</Path>
+				</File>
+				<File Id="309051078" Language="SFX">
+					<ShortName>SFX\SWOOSH #5.wav</ShortName>
+					<Path>SFX\SFX\SWOOSH #5_56D34C19.wem</Path>
+				</File>
+				<File Id="321870357" Language="SFX">
+					<ShortName>Falcon...Punch-1.wav</ShortName>
+					<Path>SFX\Falcon...Punch-1_56D34C19.wem</Path>
+				</File>
+				<File Id="343594261" Language="SFX">
+					<ShortName>Falcon...Punch-2.wav</ShortName>
+					<Path>SFX\Falcon...Punch-2_56D34C19.wem</Path>
+				</File>
+				<File Id="344857374" Language="SFX">
+					<ShortName>gta-san-andreas-ah-shit-here-we-go-again.wav</ShortName>
+					<Path>SFX\gta-san-andreas-ah-shit-here-we-go-again_56D34C19.wem</Path>
+				</File>
+				<File Id="356052640" Language="SFX">
+					<ShortName>SFX\SPONGEBOB TIME CARDS - A FEW MOMENTS LATER.wav</ShortName>
+					<Path>SFX\SFX\SPONGEBOB TIME CARDS - A FEW MOMENTS LATER_56D34C19.wem</Path>
+				</File>
+				<File Id="382230110" Language="SFX">
+					<ShortName>Nouveau dossier\-click-nice_3.wav</ShortName>
+					<Path>SFX\Nouveau dossier\-click-nice_3_56D34C19.wem</Path>
+				</File>
+				<File Id="416103140" Language="SFX">
+					<ShortName>SnoopDogt.wav</ShortName>
+					<Path>SFX\SnoopDogt_56D34C19.wem</Path>
+				</File>
+				<File Id="447737929" Language="SFX">
+					<ShortName>SFX\ARNOLD I'LL BE BACK.wav</ShortName>
+					<Path>SFX\SFX\ARNOLD I'LL BE BACK_56D34C19.wem</Path>
+				</File>
+				<File Id="484094206" Language="SFX">
+					<ShortName>Nouveau dossier\anime-wow-sound-effect-mp3cut(1).wav</ShortName>
+					<Path>SFX\Nouveau dossier\anime-wow-sound-effect-mp3cut(1)_56D34C19.wem</Path>
+				</File>
+				<File Id="500144114" Language="SFX">
+					<ShortName>SFX\FAIL #2.wav</ShortName>
+					<Path>SFX\SFX\FAIL #2_56D34C19.wem</Path>
+				</File>
+				<File Id="500673042" Language="SFX">
+					<ShortName>Nouveau dossier\MGS ALERT.wav</ShortName>
+					<Path>SFX\Nouveau dossier\MGS ALERT_56D34C19.wem</Path>
+				</File>
+				<File Id="527199930" Language="SFX">
+					<ShortName>Nouveau dossier\VICTORY.wav</ShortName>
+					<Path>SFX\Nouveau dossier\VICTORY_56D34C19.wem</Path>
+				</File>
+				<File Id="570241926" Language="SFX">
+					<ShortName>SFX\POP.wav</ShortName>
+					<Path>SFX\SFX\POP_56D34C19.wem</Path>
+				</File>
+				<File Id="583011959" Language="SFX">
+					<ShortName>Nouveau dossier\damaged_coda.wav</ShortName>
+					<Path>SFX\Nouveau dossier\damaged_coda_56D34C19.wem</Path>
+				</File>
+				<File Id="588163129" Language="SFX">
+					<ShortName>_Silent.wav</ShortName>
+					<Path>SFX\_Silent_56D34C19.wem</Path>
+				</File>
+				<File Id="589278349" Language="SFX">
+					<ShortName>Nouveau dossier\CoD4- SAS- Let-s Do This [Mpgun.com].wav</ShortName>
+					<Path>SFX\Nouveau dossier\CoD4- SAS- Let-s Do This [Mpgun.com]_56D34C19.wem</Path>
+				</File>
+				<File Id="630640560" Language="SFX">
+					<ShortName>SFX\OOF.wav</ShortName>
+					<Path>SFX\SFX\OOF_56D34C19.wem</Path>
+				</File>
+				<File Id="653804488" Language="SFX">
+					<ShortName>SFX\WINDOWS XP SHUTDOWN.wav</ShortName>
+					<Path>SFX\SFX\WINDOWS XP SHUTDOWN_56D34C19.wem</Path>
+				</File>
+				<File Id="677442579" Language="SFX">
+					<ShortName>SFX\HELLO CUTIE PIE.wav</ShortName>
+					<Path>SFX\SFX\HELLO CUTIE PIE_56D34C19.wem</Path>
+				</File>
+				<File Id="688635296" Language="SFX">
+					<ShortName>SFX\SWOOSH #4.wav</ShortName>
+					<Path>SFX\SFX\SWOOSH #4_56D34C19.wem</Path>
+				</File>
+				<File Id="711118884" Language="SFX">
+					<ShortName>SFX\HOMER SIMPSON LAUGH.wav</ShortName>
+					<Path>SFX\SFX\HOMER SIMPSON LAUGH_56D34C19.wem</Path>
+				</File>
+				<File Id="715623266" Language="SFX">
+					<ShortName>SFX\YOU'RE THE LAST ONE, COMPLETE THE MISSION.wav</ShortName>
+					<Path>SFX\SFX\YOU'RE THE LAST ONE, COMPLETE THE MISSION_56D34C19.wem</Path>
+				</File>
+				<File Id="723557967" Language="SFX">
+					<ShortName>SFX\PEW.wav</ShortName>
+					<Path>SFX\SFX\PEW_56D34C19.wem</Path>
+				</File>
+				<File Id="765671201" Language="SFX">
+					<ShortName>SFX\SWOOSH - DRAMATIC.wav</ShortName>
+					<Path>SFX\SFX\SWOOSH - DRAMATIC_56D34C19.wem</Path>
+				</File>
+				<File Id="768536592" Language="SFX">
+					<ShortName>SFX\IM FAST AS F... BOI.wav</ShortName>
+					<Path>SFX\SFX\IM FAST AS F... BOI_56D34C19.wem</Path>
+				</File>
+				<File Id="785027157" Language="SFX">
+					<ShortName>SFX\BYE HAVE A GREAT TIME.wav</ShortName>
+					<Path>SFX\SFX\BYE HAVE A GREAT TIME_56D34C19.wem</Path>
+				</File>
+				<File Id="815446000" Language="SFX">
+					<ShortName>SFX\TANGO DOWN.wav</ShortName>
+					<Path>SFX\SFX\TANGO DOWN_56D34C19.wem</Path>
+				</File>
+				<File Id="837635996" Language="SFX">
+					<ShortName>SFX\DRAMATIC IMPACT (FROM BLACK OPS 3 TRAILER).wav</ShortName>
+					<Path>SFX\SFX\DRAMATIC IMPACT (FROM BLACK OPS 3 TRAILER)_56D34C19.wem</Path>
+				</File>
+				<File Id="899079320" Language="SFX">
+					<ShortName>SFX\OMG WHO THE HELL CARES.wav</ShortName>
+					<Path>SFX\SFX\OMG WHO THE HELL CARES_56D34C19.wem</Path>
+				</File>
+				<File Id="911921679" Language="SFX">
+					<ShortName>SFX\BOOM, BIG SHAQ.wav</ShortName>
+					<Path>SFX\SFX\BOOM, BIG SHAQ_56D34C19.wem</Path>
+				</File>
+				<File Id="922543660" Language="SFX">
+					<ShortName>SFX\OBI WAN HELLO THERE.wav</ShortName>
+					<Path>SFX\SFX\OBI WAN HELLO THERE_56D34C19.wem</Path>
+				</File>
+				<File Id="972051533" Language="SFX">
+					<ShortName>SFX\NOW WE PLAY THE WAITING GAME.wav</ShortName>
+					<Path>SFX\SFX\NOW WE PLAY THE WAITING GAME_56D34C19.wem</Path>
+				</File>
+				<File Id="1027892094" Language="SFX">
+					<ShortName>SFX\TITANIC FLUTE FAIL.wav</ShortName>
+					<Path>SFX\SFX\TITANIC FLUTE FAIL_56D34C19.wem</Path>
+				</File>
+				<File Id="1033583712" Language="SFX">
+					<ShortName>SFX\WHY YOU BULLY ME.wav</ShortName>
+					<Path>SFX\SFX\WHY YOU BULLY ME_56D34C19.wem</Path>
+				</File>
+				<File Id="1051787365" Language="SFX">
+					<ShortName>Nouveau dossier\THROWING KNIFE HITMARKER.wav</ShortName>
+					<Path>SFX\Nouveau dossier\THROWING KNIFE HITMARKER_56D34C19.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

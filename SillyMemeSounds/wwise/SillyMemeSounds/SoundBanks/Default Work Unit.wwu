@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{72FAAC5E-A673-4B9D-A274-27BB526492C4}" SchemaVersion="89">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{72FAAC5E-A673-4B9D-A274-27BB526492C4}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="SoundBank" ID="{0CA01687-A799-4D5D-9D9F-9D0A764FB798}">
+					<ObjectInclusionList>
+						<ObjectRef Name="OnHuntressSelectedInMenu" ID="{016440E3-ABBB-4007-B5EB-17052C80BC51}" WorkUnitID="{9FEB1E10-20FC-4490-82A2-355156024494}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="OnLoaderChargeRelease" ID="{7CBD5807-94F0-41C1-8952-A34982EF57A8}" WorkUnitID="{9FEB1E10-20FC-4490-82A2-355156024494}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="OnKeyPickUp" ID="{380454FD-6D70-41CF-928F-4B9EE0CB55F9}" WorkUnitID="{9FEB1E10-20FC-4490-82A2-355156024494}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="OnLobbyReady" ID="{D149111C-F07B-42EC-A9BD-2C37C607B202}" WorkUnitID="{9FEB1E10-20FC-4490-82A2-355156024494}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="OnMultiplayerLastOneAlive" ID="{6147E74E-B495-44F4-9B34-C370356FA606}" WorkUnitID="{9FEB1E10-20FC-4490-82A2-355156024494}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="OnLoaderChargeCharging" ID="{B524A25D-FCC0-4558-A480-E9247154E182}" WorkUnitID="{9FEB1E10-20FC-4490-82A2-355156024494}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="OnDamageHit" ID="{32562F5C-072B-466D-A1E2-F5596633B8BB}" WorkUnitID="{9FEB1E10-20FC-4490-82A2-355156024494}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="OnDiosRevive" ID="{C1C9D951-FF70-4789-8770-597272C57E7F}" WorkUnitID="{9FEB1E10-20FC-4490-82A2-355156024494}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="OnWelcomeScreen" ID="{7F4932B2-F51F-47C2-BE5A-1192694121E0}" WorkUnitID="{9FEB1E10-20FC-4490-82A2-355156024494}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="OnDeath" ID="{0F05A042-9327-4897-88AC-B2DDCC7FDAF8}" WorkUnitID="{9FEB1E10-20FC-4490-82A2-355156024494}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="OnStageLeaving" ID="{3ACE8725-9F55-49D4-B418-D62BCDF24D9E}" WorkUnitID="{9FEB1E10-20FC-4490-82A2-355156024494}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="OnMoveItemPicked" ID="{D99720D3-FDC4-4A61-9A9E-387DA5379A98}" WorkUnitID="{9FEB1E10-20FC-4490-82A2-355156024494}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="OnHuntressUltimateArrowShot" ID="{1EA1E0A5-CDD9-4C05-9C5D-9906BF794BC2}" WorkUnitID="{9FEB1E10-20FC-4490-82A2-355156024494}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="OnRedItemPickUp" ID="{F82319F8-3EB1-4C1F-9F4E-65411A5C8119}" WorkUnitID="{9FEB1E10-20FC-4490-82A2-355156024494}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="OnVictory" ID="{719EC0F5-6D6B-4C6E-BEBC-979D8684036C}" WorkUnitID="{9FEB1E10-20FC-4490-82A2-355156024494}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="OnExplosion" ID="{286893B3-07C7-4C7E-B14E-F809705BDBFE}" WorkUnitID="{9FEB1E10-20FC-4490-82A2-355156024494}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="OnRunStart" ID="{9D541339-DC17-4D8A-BA67-66192E375C8F}" WorkUnitID="{9FEB1E10-20FC-4490-82A2-355156024494}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="OnHeavyDamageTaken" ID="{378AD351-8B45-4F9D-B5AA-63A8AE851C5D}" WorkUnitID="{9FEB1E10-20FC-4490-82A2-355156024494}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

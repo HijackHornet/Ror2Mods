@@ -1,7 +1,7 @@
 {
     "name": "EpicKillStreaksAnnoncer",
     "version_number": "1.1.3",
-    "website_url": "https://github.com/HijackHornet/Ror2Mods",
+    "website_url": "mailto:northriver@laposte.net",
     "description": "Add an epic announcer to comment on your awesome moves ! Highly configurable. Now working in multiplayer.",
     "dependencies": [
         "bbepis-BepInExPack-3.0.0",
