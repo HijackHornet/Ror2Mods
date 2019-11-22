@@ -1,4 +1,4 @@
-﻿namespace HjUpdaterAPI
+﻿namespace Hj
 {
     using BepInEx;
     using Newtonsoft.Json;
@@ -7,6 +7,7 @@
     using System.Collections.Generic;
     using System.IO;
     using System.IO.Compression;
+    using System.Linq;
     using System.Reflection;
     using System.Runtime.CompilerServices;
     using UnityEngine;
@@ -18,7 +19,7 @@
     {
         #region Constants
 
-        internal const string BASEAPIURL = "beta.thunderstore.io/api/v1";
+        internal const string BASEAPIURL = "thunderstore.io/api/v1";
         private const string BACKUPFOLDER = "BackupMods";
         private const string MODFOLDERCONTAINER = "HijackHornet-HjUpdaterAPI";
         private const string LOG = "[HjUpdaterAPI] ";
@@ -28,14 +29,10 @@
         #region Fields
 
         public static byte UpdateAlways = 0;
-
-        public static byte UpdateIfSameDependencyOnlyElseWarnAndDeactivate = 2;
-
         public static byte UpdateIfSameDependencyOnlyElseWarnOnly = 1;
-
-        public static byte WarnAndDeactivate = 4;
-
+        public static byte UpdateIfSameDependencyOnlyElseWarnAndDeactivate = 2;
         public static byte WarnOnly = 3;
+        public static byte WarnAndDeactivate = 4;
 
         private static Queue<ModUpdateRequest> modRegisteredQueue = new Queue<ModUpdateRequest>();
         private static Queue<ModUpdateRequest> modRegisteredForLateUpdateQueue = new Queue<ModUpdateRequest>();
@@ -58,7 +55,7 @@
             List<string> filesPath = new List<string>();
             filesPath.Add("Newtonsoft.Json.dll");
 
-            RegisterForUpdate("Hj-UpdaterAPI", MetadataHelper.GetMetadata(this).Version, Assembly.GetExecutingAssembly().Location, UpdateIfSameDependencyOnlyElseWarnOnly, filesPath);
+            RegisterForUpdate("HjUpdaterAPI", MetadataHelper.GetMetadata(this).Version, Assembly.GetExecutingAssembly().Location, UpdateAlways, filesPath);
             PerformAwake();
         }
 
@@ -139,9 +136,6 @@
                 else
                 {
                     Debug.Log(LOG + "Mods list fetched.");
-#if DEBUG
-                    Debug.Log(packages.Length);
-#endif
                     //Process Queue
                     while (modRegisteredQueue.Count > 0)
                     {
@@ -178,7 +172,7 @@
                     if (!sameDependencies)
                     {
                         Debug.LogWarning(LOG + "An update for " + modUpdateRequest.packageName + " is available. Current version(" + modUpdateRequest.currentVersion.ToString() + "). Newest version (" + pk.Versions[0].VersionNumber.ToString() + ")."
-                        + System.Environment.NewLine + "However, the newest version uses a different dependency version. This mod specifie not to update automaticly in that case. Please go to " + pk.Versions[0].WebsiteUrl + " and update manually.");
+                        + System.Environment.NewLine + "However, the newest version uses a different dependency version. This mod specifie not to update automaticly in that case. Please go to " + pk.PackageUrl + " and update manually.");
                     }
                     else
                     {
@@ -194,7 +188,7 @@
                     else
                     {
                         Debug.LogWarning(LOG + "An update for " + modUpdateRequest.packageName + " is available. Current version(" + modUpdateRequest.currentVersion.ToString() + "). Newest version (" + pk.Versions[0].VersionNumber.ToString() + ")."
-                       + System.Environment.NewLine + "However, the newest version uses a different dependency version. This mod specifie not to update automaticly in that case and to deactivate the mod at the next game start. Please go to " + pk.Versions[0].WebsiteUrl + " and update manually.");
+                       + System.Environment.NewLine + "However, the newest version uses a different dependency version. This mod specifie not to update automaticly in that case and to deactivate the mod at the next game start. Please go to " + pk.PackageUrl + " and update manually.");
 
                         DeactivateMod(modUpdateRequest);
                     }
@@ -202,12 +196,12 @@
                 else if (modUpdateRequest.flag == WarnOnly)
                 {
                     Debug.LogWarning(LOG + "An update for " + modUpdateRequest.packageName + " is available. Current version(" + modUpdateRequest.currentVersion.ToString() + "). Newest version (" + pk.Versions[0].VersionNumber.ToString() + ")."
-                        + System.Environment.NewLine + "This mod specifie not to update automaticly. Please go to " + pk.Versions[0].WebsiteUrl + " and update manually.");
+                        + System.Environment.NewLine + "This mod specifie not to update automaticly. Please go to " + pk.PackageUrl + " and update manually.");
                 }
                 else if (modUpdateRequest.flag == WarnAndDeactivate)
                 {
                     Debug.LogWarning(LOG + "An update for " + modUpdateRequest.packageName + " is available. Current version(" + modUpdateRequest.currentVersion.ToString() + "). Newest version (" + pk.Versions[0].VersionNumber.ToString() + ")."
-                        + System.Environment.NewLine + "This mod specifie to deactivate the mod when you will close the game. Please go to " + pk.Versions[0].WebsiteUrl + " and reinstall manually.");
+                        + System.Environment.NewLine + "This mod specifie to deactivate the mod when you will close the game. Please go to " + pk.PackageUrl + " and reinstall manually.");
                     DeactivateMod(modUpdateRequest);
                 }
             }
@@ -227,9 +221,8 @@
             Debug.Log(LOG + "An update for " + modUpdateRequest.packageName + " is available. Current version(" + modUpdateRequest.currentVersion.ToString() + "). Newest version (" + pk.Versions[0].VersionNumber.ToString() + ").");
             //Download Update
             Debug.Log(LOG + "Downloading package for update...");
-
-            UnityWebRequest web = new UnityWebRequest(pk.Versions[0].DownloadUrl);
-            yield return web.SendWebRequest();
+            UnityWebRequest web = UnityWebRequest.Get(pk.Versions[0].DownloadUrl);
+            yield return web.SendWebRequest(); ;
             if (web.isNetworkError || web.isHttpError)
             {
                 Debug.LogError(LOG + "Download failed. Skipping this mod update for now.");
@@ -277,7 +270,7 @@
                         + "-" + DateTime.Now.Day + "." + DateTime.Now.Month + "." + DateTime.Now.Year + "." + DateTime.Now.Hour + "." + DateTime.Now.Minute + "." + DateTime.Now.Second));
 
                     string path = Directory.GetParent(modUpdateRequest.currentDllFileLocation).FullName;
-
+                    File.Move(modUpdateRequest.currentDllFileLocation, Path.Combine(backupFolder.FullName, Path.GetFileName(modUpdateRequest.currentDllFileLocation) + ".old"));
                     foreach (string fileLocation in modUpdateRequest.otherFilesLocationRelativeToTheDll)
                     {
                         if (File.Exists(Path.Combine(path, fileLocation)))
@@ -286,9 +279,10 @@
                             {
                                 throw new Exception("One or multiple files used as ressource by the mod is in a parent folder to its assembly (dll). At the moment, Hj-UpdaterAPI isnt able to perform this type of update. Please make the update manually and contact this mod owner so that (s)he know (s)he uses Hj-UpdaterAPI outside of its defined limitations.");
                             }
-                            Directory.Move(Path.Combine(path, fileLocation), Path.Combine(backupFolder.FullName, fileLocation));
+                            Directory.Move(Path.Combine(path, fileLocation), Path.Combine(backupFolder.FullName, fileLocation + ".old"));
                         }
                     }
+                    Debug.Log(LOG + modUpdateRequest.packageName + " has been updated to the latest version.");
                     return 1;
                 }
                 catch (Exception e)
@@ -319,7 +313,25 @@
             {
                 if (pk.Versions[i].VersionNumber == version)
                 {
-                    return pk.Versions[i].Dependencies == pk.Versions[0].Dependencies;
+                    string[] a = pk.Versions[i].Dependencies.Where<string>(x => { return !x.Contains("HjUpdaterAPI"); }).OrderBy(y => y).ToArray();
+                    string[] b = pk.Versions[0].Dependencies.Where<string>(x => { return !x.Contains("HjUpdaterAPI"); }).OrderBy(y => y).ToArray();
+
+                    if (a.Length == b.Length)
+                    {
+                        bool eq = true;
+                        for (int j = 0; j < a.Length; j++)
+                        {
+                            if (a[j] != b[j])
+                            {
+                                eq = false;
+                            }
+                        }
+                        return eq;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
             }
             Debug.LogError("Unable to find the dependencies for that mod version. Please contact the modder of that mod that you encountered this issue.");
@@ -368,6 +380,7 @@
                     if (!value.Contains("README.md")) { value.Add("README.md"); }
                     if (!value.Contains("manifest.json")) { value.Add("manifest.json"); }
                     if (!value.Contains("icon.png")) { value.Add("icon.png"); }
+                    _otherFilesLocationRelativeToTheDll = value;
                 }
             }
 

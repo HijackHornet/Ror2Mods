@@ -1,54 +1,140 @@
-﻿
-# Epic KillStreaks Announcer
-What's more rewarding than an epic announcer commenting on your best kill streaks? This mod adds (on the client side) the famous Unreal Tournament 2004 Announcer to your game! Will you manage to do a monster kill?
+﻿![](https://lh3.googleusercontent.com/8pxcLPj9w-mzVGApS19ZoY1ECpWDiDsQ1gqF7ph8_-n9pEPsTWQBQ208FXVAwGffITcQgkqhSJzOYN0k2LUGi1D6MflZYFEIKvSej2pyOXX67xXDCPGn17dZqhO01KCxptZfO-5Awr6Uja-VtIpqGXMFweme5UJLjmRLzUz_xqoJTQVw3zUBwjDmmY4LO-lfuLBaH738Gc6L0IBFlf2iUeLjFYYRn5vuf-LPm4oXoTLKxROc27R4TlKVS9zZdduLK9oO044bR_KJgidLq8cL-oxKFJcDV9hDFx9-AZjhn3X7ggslq1SX-O1XJohij6Fq8KlxJDF8kXW-JQKHETblH6mmgStqjIHosNlXUmuGykHDEdQTvQjJtZFyUUGbo9oeATbhlz5NdNzT6H2Sf3sUL7mrn694CyTID7iVEakOx9xZiymyEDm3zoaGX0-U53WxFcYZd6tONZw_EGhUGSWzn2tMjNDCQB_PEWmYQS756r4Ga60_jzNXgjALVkCi2sXjuorz8Z7xhwti_OwuLPXeyEsjlTzPpZ_YR6WHQetyZVep8QOd8zAo79Z3uiy-4kP6NBPFIV5EwMjT4RQysdRFdNv2NraqN1Jdx8s4zBMXwHYE3HYVyyQ68312e6o87eWYHYrNx5VH5IkaOZRjkFO5AuFiq-IO-6VYUvZdek9lkq2BR52OVqm0SE4=w1024-h300-no)
 
-## What's new in this update ?
-Now work in multiplayer. Also it's way faster than before. I basically re-wrote the all code in the last 3 days (i spent like 30h on this). But here you have it :)
-Now if you have this mod installed and you are hosting the game, it will notify everyone using the Chat if one user reached the GodLike or the MonsterKill streaks, regardless of the fact that this user has the mod installed or not.
-Also, a new badass icon !
+# Hj Updater API  
+This 'mod' is actually an API for developers willing to implement an auto-update feature for their mod in only one function call. As a user of the mod, every other mod using Hj Updater API will be updated automatically while you are playing. As a developer, many options are available for you to decide how the update should behave. If you only want to warn the mod user that an update is available, Hj will provide you an easy way to do so.
 
-## Features
-Whenever you get a kill, the mod registers it and if you managed to reach a certain amount of kills, each one seperated by a maximum of 3seconds (configurable), it will trigger an epic sound.
-Also, if you have this mod installed and you are hosting the game, it will notify everyone using the Chat if one user reached the GodLike or the MonsterKill streaks, regardless of the fact that this user has the mod installed or not (configurable).
+## How does it work ?  
+I won't enter the details but BepInEx loads all of your mods into your RAM when you start the game. That means that **while still playing, modification to the mods files are possible** without impacting your gameplay experience. For mods that require runtime access to files resources (assets, sandbanks,etc.)., Hj will wait for you to close the game before deploying the changes.  
+## Is it safe to use ?  
+**Yes**. Every update is logged, and every old mod version is kept into a **Backup** folder under `BepInEx/plugin/HijackHornet-HjUpdaterAPI/Backup`. Also, Hj create an interface between mods and the folder structure in which they exist. So **no matter if a user put the dll file into the root of /plugin or into a folder inside another folder** named pepeDontLikeToFeel : the mod will still update and keep this folder structure.
 
-## Config
-Before installing, please remove the old config file if you have used an other version of this mod before 1.1.0.
-You can change the number of kills needed to reach each sound in the config file. Put -1 to remove one sound. You can reorder them but GodLike & Monster Kill have to be the two highest killstreaks. By default the values are:
+## User Guide  
+As a user, you can install this mod by unzipping the archive into the plugin folder. Don't forget to add **BOTH** dll next to each other.  
+However, this mod won't do anything if the other mods you are using aren't compatible with it. Some mods might put Hj as a dependency, forcing you to install it, while others might only suggest you install it because they made their mod compatible.  
+### Config  
+At the moment, the only config available to you is the emergency turn of parameters. For example, if a mod has been updated automatically but the update is broken and you would like to use the backup files (previous version), you should change this parameter to true,  
+Just go to /BepInEx/config/hjupdaterapi.config and change the value from false to true.
 
- - Headshot : -1 (deactivated, replace by 1 if you want to activate it)
- - Double kill : -1 (deactivated, replace by 2 if you want to active it)
- - Triple Kill : 3
- - Multi kill : 5
- - Dominating : 8
- - Rampage : 12
- - Ludicrous Kill : 16
- - God like : 20
- - M-M-Monster kill : 25
+## Developer Guide  
+As a modder, you can use Hj function to add an update behaviour for your mod. It's very simple to do and should provide enough flexibility to work with basically any mod. Here is how to setup Hj into your mods. It also ensures that if your mod end up being deprecated, it will be automatically deactivated on users’ computers.
 
-You can also change the maximum time before the killing streak is reset. By default it's set to 3sec.
-Finally change the Broadcast value to false to deactivate the chat broadcast on high tier kill streaks.
+  
+### Adding the dll into your project lib folder  
+In Visual Studio (or whatever IDE you use) add both dll included in the mod download link into your library folder, and add a reference to them into your project settings.
 
-## Multiplayer
-This is a client side mod. That mean that only you can hear the announcer, and that it doesnt affect any other player's game.
-If you are hosting the game however, you are also tracking other players killstreaks, and if one manage to reach one of the 2 biggest kill streaks, a message will appear in the chat.
-## Planned Update
- - On my next mod release, I might have to deploy a compatibility patch on this one (not sure yet).
+### Adding the dependency  
+You can choose to HjUpdaterAPI as a dependency so that you are assured that everyone using it will get the latest version or at least be informed that a new version is available. However you can also choose to add it has an optional dependency and check in the awake function if the mod is installed and if so perform the command call.  
+### Using the namespace  
+First add the namespace usage at the beginning of your mods main class.  
+```c  
+using Hj;  
+//your other namespace  
+```  
+Now go into your awake function (it has to be put into Awake and not into Start) and call the register function :  
 
+```c
+void Awake(){  
+HjUpdaterAPI.RegisterForUpdate(  
+	string packageName,  
+	System.Version currentVersion,  
+	string assemblyFileLocation,  
+	[byte flag],  
+	[List<string> otherFilesLocationRelativeToTheDll],  
+	[bool modUseRuntimeRessourceLoading]
+	);  
+}  
+```  
+Let's go through each parameter  
+Mandatory parameters  
+- packageName - The name of your mod inside the manifest.json name  
+- currentVersion - The version of your mod. Can bet fetch using `MetadataHelper.GetMetadata(this).Version`  
+- assemblyFileLocation - This is a runtime absolute value. This HAS TO BE `Assembly.GetExecutingAssembly().Location`
 
-## Versions
- - 1.0.0 - Initial release
- - 1.0.4 - No more structure file and the thing is hopefully finally working
- - 1.1.0 - A LOT of rework on the mod. Like i almost remade it completly. But now it works in multiplayer !
- - 1.1.1 - Small patch to allow you to set any value on the config file for killstreaks. So now you can reorder or deasctivate any sound. No need to update if you don't change the default values.
- - 1.1.2 - Updating to the lastest BepinEx, R2API and add compatibility with ConfigManager, removed AssetPlus dependency
- - 1.1.3 - Fix : Minion kills were not counted & monster suicides were blocking the port to 99%.
+Optional parameters
 
-## Contact
-I'm available on the ROR2 Modding discord server (@Hijack Hornet). 
-Please send me feedback! This is my second mod so I would really appreciate it.
-Even if it's just to say that you like it :)
+- flag - This is used to specify the behaviour of the update. Options are :  
+HjUpdaterAPI.**UpdateAlways**  
+HjUpdaterAPI.**UpdateIfSameDependencyOnlyElseWarnOnly**  
+HjUpdaterAPI.**UpdateIfSameDependencyOnlyElseWarnAndDeactivate**  
+HjUpdaterAPI.**WarnOnly**  
+HjUpdaterAPI.**WarnAndDeactivate**
 
-##Thanks
-Thanks to all the devs that helped me do this, and thanks to my beta testers: Ravens Queen, FatansticFungus & Twyla
-Thanks to Miss_name for making AssetPlus and helping me with it :) Thanks also to the mod community for helping me so much in the process. Harb, iDeathHD you're the best <3'
-And thanks to @sly for correcting my english.
+By default, **UpdateIfSameDependencyOnlyElseWarnOnly** is used.  
+**DO NOT** use UpdateAlways except if you know what you are doing. It could be useful for instance if you know that the next dependency update will not break your mod, but it's risky and could end up breaking your mod.
+
+- otherFilesLocationRelativeToTheDll - Other files relative path inside of you mod. You do not have to add the readme, manifest and icon positions here. Those files could be other dll, resources, assets.  
+- modUseRuntimeRessourceLoading - True if your mod is loading files at runtime (in or after the Start() call. Default : false.  
+If this value is true, then the deployment process of the update is postponed to the game closure call, so that it doesn’t affect the mod usage at runtime.
+
+That's it ! Your mod is now able to self-update at runtime when newer versions are uploaded on the thunderstore.
+
+### Case study / Example  
+#### A simple dll mod with no other files  
+```c  
+void Awake(){  
+RegisterForUpdate(  
+	"MyModNameAsInTheManifest",  
+	MetadataHelper.GetMetadata(this).Version,  
+	Assembly.GetExecutingAssembly().Location  
+	);  
+//...your other function calls  
+}  
+```  
+#### A mod with one dll but that don't update and just warn the user that a new version exists  
+```c  
+void Awake(){  
+List<string> files = new List<string>();  
+files.Add('mySecondDll.dll');  
+RegisterForUpdate(  
+	"MyModNameAsInTheManifest",  
+	MetadataHelper.GetMetadata(this).Version,  
+	Assembly.GetExecutingAssembly().Location,  
+	HjUpdaterAPI.WarnOnly  
+);  
+//...your other function calls  
+}  
+```
+
+#### A mod with two dll next to each other  
+```c  
+void Awake(){  
+List<string> files = new List<string>();  
+files.Add('mySecondDll.dll');  
+RegisterForUpdate(  
+	"MyModNameAsInTheManifest",  
+	MetadataHelper.GetMetadata(this).Version,  
+	Assembly.GetExecutingAssembly().Location,  
+	HjUpdaterAPI.UpdateIfSameDependencyOnlyElseWarnOnly  
+	files  
+);  
+//...your other function calls  
+}  
+```  
+#### A mod with resources loaded at runtime inside a subfolder  
+```c  
+void Awake(){  
+List<string> files = new List<string>();  
+files.Add('/asset/myAssetPack.asset');  
+files.Add('/font/myFont.ttf');  
+files.Add('/sounds/mySoundBank.bnk');  
+RegisterForUpdate(  
+	"MyModNameAsInTheManifest",  
+	MetadataHelper.GetMetadata(this).Version,  
+	Assembly.GetExecutingAssembly().Location,  
+	HjUpdaterAPI.UpdateIfSameDependencyOnlyElseWarnOnly,  
+	files,  
+	true  
+	);  
+//...your other function calls  
+}  
+```
+
+  
+## Versions  
+- 1.0.0 - Initial release
+
+## Contact  
+I'm available on the ROR2 Official discord server (@Hijack Hornet).
+
+## Thanks  
+And thanks to @Bepis for explaining to me how he made BepInEx. That really helped me find how to make this API possible. Thanks to @Rein too for its encouragement in this project.
