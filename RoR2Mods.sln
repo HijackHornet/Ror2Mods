@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EpicKillStrikeAnnoncer", "E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SillyMemeSounds", "SillyMemeSounds\SillyMemeSounds.csproj", "{8E10F0AB-D7B1-4135-A146-0063ACCBFFDA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModAutoUpdaterAPI", "ModAutoUpdater\ModAutoUpdaterAPI.csproj", "{6A1B9886-3B5F-4D6E-8AA8-2875A200BE06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HjUpdaterAPI", "HjUpdaterAPI\HjUpdaterAPI.csproj", "{AECAB0A7-84C5-410E-8B43-09EB5405B301}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{8E10F0AB-D7B1-4135-A146-0063ACCBFFDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E10F0AB-D7B1-4135-A146-0063ACCBFFDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E10F0AB-D7B1-4135-A146-0063ACCBFFDA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6A1B9886-3B5F-4D6E-8AA8-2875A200BE06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6A1B9886-3B5F-4D6E-8AA8-2875A200BE06}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6A1B9886-3B5F-4D6E-8AA8-2875A200BE06}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6A1B9886-3B5F-4D6E-8AA8-2875A200BE06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AECAB0A7-84C5-410E-8B43-09EB5405B301}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AECAB0A7-84C5-410E-8B43-09EB5405B301}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AECAB0A7-84C5-410E-8B43-09EB5405B301}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AECAB0A7-84C5-410E-8B43-09EB5405B301}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

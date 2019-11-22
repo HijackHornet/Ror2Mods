@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PreserveCompilationContext>false</PreserveCompilationContext>
@@ -15,9 +14,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="SillySoundsBank.bnk" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="System.Text.Json" Version="4.6.0" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
@@ -383,10 +379,12 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="powershell Compress-Archive -Path '$(TargetDir)$(TargetFileName)', '$(ProjectDir)icon.png', '$(TargetDir)manifest.json', '$(ProjectDir)README.md' -DestinationPath '$(ProjectDir)\$(ProjectName).zip' -Force" />
-  </Target>
 
+
+  
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Configuration)' == 'Release' ">
+    <Exec Command="dotfuscatorCLI.exe Dotfuscator.xml&#xD;&#xA;powershell Compress-Archive -Path '$(ProjectDir)\Dotfuscated\$(TargetFileName)', '$(ProjectDir)icon.png', '$(TargetDir)manifest.json', '$(ProjectDir)README.md' -DestinationPath '$(ProjectDir)\$(ProjectName).zip' -Force" />
+  </Target>
 
 
 </Project>
