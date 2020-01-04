@@ -3,9 +3,7 @@
 What's more rewarding than an epic announcer commenting on your best kill streaks? This mod adds (on the client side) the famous Unreal Tournament 2004 Announcer to your game! Will you manage to do a monster kill?
 
 ## What's new in this update ?
-Now work in multiplayer. Also it's way faster than before. I basically re-wrote the all code in the last 3 days (i spent like 30h on this). But here you have it :)
-Now if you have this mod installed and you are hosting the game, it will notify everyone using the Chat if one user reached the GodLike or the MonsterKill streaks, regardless of the fact that this user has the mod installed or not.
-Also, a new badass icon !
+Add HjUpdaterApi as dependency. So updates will be performed automaticly in the futur.
 
 ## Features
 Whenever you get a kill, the mod registers it and if you managed to reach a certain amount of kills, each one seperated by a maximum of 3seconds (configurable), it will trigger an epic sound.
@@ -42,6 +40,8 @@ If you are hosting the game however, you are also tracking other players killstr
  - 1.1.1 - Small patch to allow you to set any value on the config file for killstreaks. So now you can reorder or deasctivate any sound. No need to update if you don't change the default values.
  - 1.1.2 - Updating to the lastest BepinEx, R2API and add compatibility with ConfigManager, removed AssetPlus dependency
  - 1.1.3 - Fix : Minion kills were not counted & monster suicides were blocking the port to 99%.
+ - 1.2.4 - Add HjUpdaterApi as dependency. So updates will be performed automaticly in the futur.
+ - 1.2.5 - Add the dependency directive so that it doesnt raise an error but a warning if you forget the dependency
 
 ## Contact
 I'm available on the ROR2 Modding discord server (@Hijack Hornet). 

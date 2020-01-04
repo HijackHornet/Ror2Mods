@@ -16,6 +16,7 @@
     <EmbeddedResource Include="SillySoundsBank.bnk" />
   </ItemGroup>
   <ItemGroup>
+
     <Reference Include="Assembly-CSharp">
       <HintPath>..\libs\Assembly-CSharp.dll</HintPath>
       <Private>false</Private>
@@ -364,6 +365,10 @@
       <HintPath>..\libs\AssetPlus.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="Hj">
+      <HintPath>..\libs\HjUpdaterAPI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Update="icon.png">
@@ -380,11 +385,7 @@
     </None>
   </ItemGroup>
 
-
-  
   <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Configuration)' == 'Release' ">
-    <Exec Command="dotfuscatorCLI.exe Dotfuscator.xml&#xD;&#xA;powershell Compress-Archive -Path '$(ProjectDir)\Dotfuscated\$(TargetFileName)', '$(ProjectDir)icon.png', '$(TargetDir)manifest.json', '$(ProjectDir)README.md' -DestinationPath '$(ProjectDir)\$(ProjectName).zip' -Force" />
+    <Exec Command="dotfuscatorCLI.exe Dotfuscator.xml&#xD;&#xA;powershell Compress-Archive -Path '$(TargetDir)\Dotfuscated\$(TargetFileName)', '$(ProjectDir)icon.png', '$(TargetDir)manifest.json', '$(ProjectDir)README.md' -DestinationPath '$(ProjectDir)\$(ProjectName).zip' -Force" />
   </Target>
-
-
 </Project>

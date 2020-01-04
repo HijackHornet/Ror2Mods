@@ -11,10 +11,11 @@
     using System.Reflection;
     using UnityEngine;
     using UnityEngine.Networking;
+    using Hj;
 
     [R2APISubmoduleDependency("AssetPlus")]
-    [BepInPlugin("com.hijackhornet.epickillstreaksannouncer", "Epic KillStreaks Announcer", "1.1.3")]
-
+    [BepInDependency("com.hijackhornet.hjupdaterapi")]
+    [BepInPlugin("com.hijackhornet.epickillstreaksannouncer", "Epic KillStreaks Announcer", "1.2.5")]
     public class EpicKillStreaksAnnouncer : BaseUnityPlugin
     {
         internal const uint Headshot = 2632074263;
@@ -136,7 +137,7 @@
                 true,
                 "Do you want (when hosting) a message to be sent into the chat when one user reached GodLike or MonsterKill ?"
                 );
-
+            HjUpdaterAPI.RegisterForUpdate("EpicKillStreaksAnnoncer", MetadataHelper.GetMetadata(this).Version);
             On.RoR2.CharacterBody.Start += (orig, self) =>
             {
                 orig(self);
@@ -203,7 +204,6 @@
                             {
                                 if (healthComp.combinedHealth <= damageDealtMessage.damage)
                                 {
-
                                     announcer.RegisterKill();
 #if DEBUG
                                     Debug.Log("Kill registered");
@@ -223,7 +223,6 @@
                                 Debug.LogWarning("Victim has no healthComp !");
 #endif
                             }
-
                         }
                         else
                         {
@@ -268,7 +267,6 @@
                 {
                     damageReport.attackerOwnerMaster.GetBodyObject().GetComponent<Announcer>().RegisterKill();
                 }
-
             }
         }
 
@@ -361,13 +359,11 @@
 
         private void PlaySound(uint eventid)
         {
-
             if ((currentSoundTypeId != eventid) && (this.isLocal))
             {
                 currentSoundTypeId = eventid;
                 AkSoundEngine.StopPlayingID(currentSoundId);
                 currentSoundId = AkSoundEngine.PostEvent(eventid, this.gameObject);
-
             }
         }
 
@@ -385,7 +381,6 @@
             if (killSpreeCount == EpicKillStreaksAnnouncer.ConfigWrapperHeadshot.Value)
             {
                 PlaySound(sound1);
-
             }
             else if (killSpreeCount == EpicKillStreaksAnnouncer.ConfigWrapperDoubleKill.Value)
             {

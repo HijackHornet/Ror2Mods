@@ -1,10 +1,11 @@
 {
-    "name": "SillyMemeSounds",
+    "name": "SillySounds",
     "version_number": "1.0.0",
     "website_url": "mailto:northriver@laposte.net",
-    "description": "Add or replace a lot of sounds by meme sounds. No Earrape.",
+    "description": "Add a lot of meme sounds (with low proc chance) to the game. No Earrape, and no immersion breaks.",
     "dependencies": [
         "bbepis-BepInExPack-3.0.0",
-		"tristanmcpherson-R2API-2.3.0"
+		"tristanmcpherson-R2API-2.3.0",
+		"HijackHornet-HjUpdaterAPI-1.0.5"
     ]
 }

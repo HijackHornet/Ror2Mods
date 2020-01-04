@@ -1,16 +1,20 @@
-﻿namespace QuickRestart
+﻿using BepInEx;
+using BepInEx.Configuration;
+using System.Collections;
+using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
+using Hj;
+using System.Reflection;
+using RoR2.UI;
+using R2API.Utils;
+using RoR2.ConVar;
+
+namespace QuickRestart
 {
-    using BepInEx;
-    using BepInEx.Configuration;
-    using System.Collections;
-    using UnityEngine;
-    using UnityEngine.Networking;
-    using UnityEngine.SceneManagement;
-
     [BepInDependency("com.bepis.r2api")]
-
-    [BepInPlugin("com.hijackhornet.quickrestart", "Quick Restart", "1.0.2")]
-
+    [BepInDependency("com.hijackhornet.hjupdaterapi")]
+    [BepInPlugin("com.hijackhornet.quickrestart", "Quick Restart", "1.2.1")]
     public class QuickRestart : BaseUnityPlugin
     {
         public static ConfigEntry<KeyboardShortcut> QuickRestartConfigWrapperRestart { get; set; }
@@ -33,17 +37,18 @@
                  new KeyboardShortcut(KeyCode.B),
                 "Type the key you want to use as a shortcut to get everyone back to the character selection menu"
             );
+            HjUpdaterAPI.RegisterForUpdate("QuickRestart", MetadataHelper.GetMetadata(this).Version);
             On.RoR2.UI.ChatBox.FocusInputField += (orig, self) => { orig(self); isInChatBox = true; };
             On.RoR2.UI.ChatBox.UnfocusInputField += (orig, self) => { orig(self); isInChatBox = false; };
         }
 
         public void Update()
         {
-            if (QuickRestartConfigWrapperRestart.Value.IsDown() && RoR2.NetworkSession.instance && NetworkServer.active && !this.isInChatBox && (SceneManager.GetActiveScene().name != "lobby"))
+            if (QuickRestartConfigWrapperRestart.Value.IsDown() && RoR2.NetworkSession.instance && NetworkServer.active && !this.isInChatBox && (SceneManager.GetActiveScene().name != "lobby") && !typeof(ConsoleWindow).GetFieldValue<BoolConVar>("cvConsoleEnabled").value)
             {
                 RestartRun();
             }
-            else if (QuickRestartConfigWrapperBack.Value.IsDown() && RoR2.NetworkSession.instance && NetworkServer.active && !this.isInChatBox && (SceneManager.GetActiveScene().name != "lobby"))
+            else if (QuickRestartConfigWrapperBack.Value.IsDown() && RoR2.NetworkSession.instance && NetworkServer.active && !this.isInChatBox && (SceneManager.GetActiveScene().name != "lobby") && !typeof(ConsoleWindow).GetFieldValue<BoolConVar>("cvConsoleEnabled").value)
             {
                 GoBackToCharacterSelection();
             }

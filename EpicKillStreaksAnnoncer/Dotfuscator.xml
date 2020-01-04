@@ -8,14 +8,14 @@
   <input>
     <loadpaths>
       <option>prepend</option>
-      <file dir="D:\Projets\Ror2Mods\libs" />
+      <file dir="D:\Projets\Ror2Mods\ClosedSource\libs" />
     </loadpaths>
     <asmlist>
-      <inputassembly refid="a35ede6b-b02a-4529-9904-6b99259ab2f9">
+      <inputassembly refid="eaadd6fd-809a-4b9a-ac69-1045376c05f8">
         <option>honoroas</option>
         <option>stripoa</option>
         <option>transformxaml</option>
-        <file dir="D:\Projets\Ror2Mods\EpicKillStreaksAnnoncer\bin\Release" name="EpicKillStreaksAnnoncer.dll" />
+        <file dir="D:\Projets\Ror2Mods\ClosedSource\EpicKillStreaksAnnoncer\bin\Release" name="EpicKillStreaksAnnoncer.dll" />
       </inputassembly>
     </asmlist>
   </input>
@@ -28,9 +28,9 @@
       <type name="*" regex="true" speclist="+public" />
       <type name="*" regex="true" excludetype="false">
         <method name="On.*" regex="true" />
-        <method name=".*Update" regex="true" />
         <method name="Start" regex="true" />
         <method name="Awake" regex="true" />
+        <method name="*Update" regex="true" />
       </type>
     </excludelist>
     <mapping>

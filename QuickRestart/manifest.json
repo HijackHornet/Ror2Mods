@@ -1,9 +1,10 @@
 {
     "name": "QuickRestart",
-    "version_number": "1.0.2",
+    "version_number": "1.2.1",
     "website_url": "mailto:northriver@laposte.net",
     "description": "Restart a run with a simple key !",
     "dependencies": [
-        "bbepis-BepInExPack-3.0.0"
+        "bbepis-BepInExPack-3.0.0",
+		"HijackHornet-HjUpdaterAPI-1.0.5"
     ]
 }

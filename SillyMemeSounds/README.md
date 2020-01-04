@@ -1,26 +1,41 @@
-﻿
-# Silly Meme Sounds
-This mod adds (on the client side) a compilation of the most famous meme sounds i could find. But don't worry, i didnt included any ear hurting sounds.
-This might not be a must have mod, but you'll definitly have a good laught even when dying ! Add my other sound mod : EpicKillStreaksAnnouncer for even more sounds rework :)
+﻿# Silly Meme Sounds
+This mod adds (on the client side) a compilation of the most famous meme sounds I could find. But don't worry, I didn’t include any ear hurting sounds.
+
+This might not be a must-have mod, but you'll definitely have a good laugh even when dying ! Add my other sound mod : EpicKillStreaksAnnouncer for even more sounds rework :)
+
+I've been working on this for quite a long time now but got caught into making my Hj UpdaterAPI.
+
+Right now the mod is working and pretty decent, but "only" include about 25 sounds on the 50 that are planned. But don't worry, this mod will automatically update itself when I add extra content over the next weeks.
 
 ## Features
-Here is a list of in game events that can trigger sounds. Each event has a collection of multiple sounds to pick from.
-//TODO
+
+Right now custom sounds play on the following events :
+- On run starts
+- On enemy hit
+- On Preon fire
+- On death
+- On run win
+
+- And on about 5 other events that I'll let you discover by yourself
+
+## Installation
+
+Please install both this mod and its dependency in your plugin folder.
 
 ## Config
-Not implemented yet. But if i get enought download i'll add the possibility to desactivate some events or sounds.
+Not implemented yet. But that is planned for next week (and once again, this is automatically updated)
 
 ## Multiplayer
-This is a client side mod. That mean that only you can hear the announcer, and that it doesnt affect any other player's game.
+This is a client-side mod. That mean that only you can hear the sounds, and that it doesn’t affect any other player's game.
 
 ## Planned Update
- - On my next mod release, I might have to deploy a compatibility patch on this one (not sure yet).
-
+- Adding about 10 others in game events that have a chance of triggering certain sounds.
 
 ## Versions
- - 1.0.0 - Initial release
- 
+
+- 1.0.0 - Initial release
+
 ## Contact
-I'm available on the ROR2 Modding discord server (@Hijack Hornet). 
-Please send me feedback! This is third mod so I would really appreciate it.
-Even if it's just to say that you like it :)
+
+I'm available on the ROR2 Modding discord server (@Hijack Hornet).
+Please send me feedback !

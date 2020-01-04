@@ -1,9 +1,0 @@
-{
-    "name": "HjUpdaterAPI",
-    "version_number": "1.0.0",
-    "website_url": "mailto:northriver@laposte.net",
-    "description": "A robust and flexible API for checking mod versions and updating automatically.",
-    "dependencies": [
-		"bbepis-BepInExPack-3.0.0"
-    ]
-}

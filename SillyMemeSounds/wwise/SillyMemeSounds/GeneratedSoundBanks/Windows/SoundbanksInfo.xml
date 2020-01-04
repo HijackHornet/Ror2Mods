@@ -7,9 +7,9 @@
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
 		<ExternalSourcesOutputRoot>D:\Projets\Ror2Mods\SillyMemeSounds\wwise\SillyMemeSounds\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
-	<DialogueEvents/>
-	<StreamedFiles/>
-	<MediaFilesNotInAnyBank/>
+	<DialogueEvents />
+	<StreamedFiles />
+	<MediaFilesNotInAnyBank />
 	<SoundBanks>
 		<SoundBank Id="1355168291" Language="SFX">
 			<ObjectPath>Init</ObjectPath>
@@ -21,24 +21,24 @@
 			<ShortName>SoundBank</ShortName>
 			<Path>SoundBank.bnk</Path>
 			<IncludedEvents>
-				<Event Id="2600171160" Name="OnDamageHit" ObjectPath="\Events\Default Work Unit\OnDamageHit"/>
-				<Event Id="2598090648" Name="OnDeath" ObjectPath="\Events\Default Work Unit\OnDeath"/>
-				<Event Id="4072839998" Name="OnDiosRevive" ObjectPath="\Events\Default Work Unit\OnDiosRevive"/>
-				<Event Id="2131585375" Name="OnExplosion" ObjectPath="\Events\Default Work Unit\OnExplosion"/>
-				<Event Id="1966329801" Name="OnHeavyDamageTaken" ObjectPath="\Events\Default Work Unit\OnHeavyDamageTaken"/>
-				<Event Id="334758607" Name="OnHuntressSelectedInMenu" ObjectPath="\Events\Default Work Unit\OnHuntressSelectedInMenu"/>
-				<Event Id="948171580" Name="OnHuntressUltimateArrowShot" ObjectPath="\Events\Default Work Unit\OnHuntressUltimateArrowShot"/>
-				<Event Id="1482489027" Name="OnKeyPickUp" ObjectPath="\Events\Default Work Unit\OnKeyPickUp"/>
-				<Event Id="2079747858" Name="OnLoaderChargeCharging" ObjectPath="\Events\Default Work Unit\OnLoaderChargeCharging"/>
-				<Event Id="3259047430" Name="OnLoaderChargeRelease" ObjectPath="\Events\Default Work Unit\OnLoaderChargeRelease"/>
-				<Event Id="1091271883" Name="OnLobbyReady" ObjectPath="\Events\Default Work Unit\OnLobbyReady"/>
-				<Event Id="3567026048" Name="OnMoveItemPicked" ObjectPath="\Events\Default Work Unit\OnMoveItemPicked"/>
-				<Event Id="2561528917" Name="OnMultiplayerLastOneAlive" ObjectPath="\Events\Default Work Unit\OnMultiplayerLastOneAlive"/>
-				<Event Id="1660580786" Name="OnRedItemPickUp" ObjectPath="\Events\Default Work Unit\OnRedItemPickUp"/>
-				<Event Id="2053534051" Name="OnRunStart" ObjectPath="\Events\Default Work Unit\OnRunStart"/>
-				<Event Id="89815316" Name="OnStageLeaving" ObjectPath="\Events\Default Work Unit\OnStageLeaving"/>
-				<Event Id="1840658428" Name="OnVictory" ObjectPath="\Events\Default Work Unit\OnVictory"/>
-				<Event Id="3148788086" Name="OnWelcomeScreen" ObjectPath="\Events\Default Work Unit\OnWelcomeScreen"/>
+				<Event Id="2600171160" Name="OnDamageHit" ObjectPath="\Events\Default Work Unit\OnDamageHit" />
+				<Event Id="2598090648" Name="OnDeath" ObjectPath="\Events\Default Work Unit\OnDeath" />
+				<Event Id="4072839998" Name="OnDiosRevive" ObjectPath="\Events\Default Work Unit\OnDiosRevive" />
+				<Event Id="2131585375" Name="OnExplosion" ObjectPath="\Events\Default Work Unit\OnExplosion" />
+				<Event Id="1966329801" Name="OnHeavyDamageTaken" ObjectPath="\Events\Default Work Unit\OnHeavyDamageTaken" />
+				<Event Id="334758607" Name="OnHuntressSelectedInMenu" ObjectPath="\Events\Default Work Unit\OnHuntressSelectedInMenu" />
+				<Event Id="948171580" Name="OnHuntressUltimateArrowShot" ObjectPath="\Events\Default Work Unit\OnHuntressUltimateArrowShot" />
+				<Event Id="1482489027" Name="OnKeyPickUp" ObjectPath="\Events\Default Work Unit\OnKeyPickUp" />
+				<Event Id="2079747858" Name="OnLoaderChargeCharging" ObjectPath="\Events\Default Work Unit\OnLoaderChargeCharging" />
+				<Event Id="3259047430" Name="OnLoaderChargeRelease" ObjectPath="\Events\Default Work Unit\OnLoaderChargeRelease" />
+				<Event Id="1091271883" Name="OnLobbyReady" ObjectPath="\Events\Default Work Unit\OnLobbyReady" />
+				<Event Id="3567026048" Name="OnMoveItemPicked" ObjectPath="\Events\Default Work Unit\OnMoveItemPicked" />
+				<Event Id="2561528917" Name="OnMultiplayerLastOneAlive" ObjectPath="\Events\Default Work Unit\OnMultiplayerLastOneAlive" />
+				<Event Id="1660580786" Name="OnRedItemPickUp" ObjectPath="\Events\Default Work Unit\OnRedItemPickUp" />
+				<Event Id="2053534051" Name="OnRunStart" ObjectPath="\Events\Default Work Unit\OnRunStart" />
+				<Event Id="89815316" Name="OnStageLeaving" ObjectPath="\Events\Default Work Unit\OnStageLeaving" />
+				<Event Id="1840658428" Name="OnVictory" ObjectPath="\Events\Default Work Unit\OnVictory" />
+				<Event Id="3148788086" Name="OnWelcomeScreen" ObjectPath="\Events\Default Work Unit\OnWelcomeScreen" />
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="54587247" Language="SFX">

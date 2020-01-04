@@ -7,9 +7,9 @@
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
 		<ExternalSourcesOutputRoot>D:\Projets\RoR2Mods\SillySounds\wwise\SillySoundsBank\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
-	<DialogueEvents/>
-	<StreamedFiles/>
-	<MediaFilesNotInAnyBank/>
+	<DialogueEvents />
+	<StreamedFiles />
+	<MediaFilesNotInAnyBank />
 	<SoundBanks>
 		<SoundBank Id="1355168291" Language="SFX">
 			<ObjectPath>Init</ObjectPath>
@@ -21,15 +21,15 @@
 			<ShortName>SillySoundsBank</ShortName>
 			<Path>SillySoundsBank.bnk</Path>
 			<IncludedEvents>
-				<Event Id="305393359" Name="Dominating" ObjectPath="\Events\Default Work Unit\Dominating"/>
-				<Event Id="3650570114" Name="DoubleKill" ObjectPath="\Events\Default Work Unit\DoubleKill"/>
-				<Event Id="1611658976" Name="GodLike" ObjectPath="\Events\Default Work Unit\GodLike"/>
-				<Event Id="2632074263" Name="HeadShot" ObjectPath="\Events\Default Work Unit\HeadShot"/>
-				<Event Id="2980856139" Name="LudriKill" ObjectPath="\Events\Default Work Unit\LudriKill"/>
-				<Event Id="2233416765" Name="MonsterKill" ObjectPath="\Events\Default Work Unit\MonsterKill"/>
-				<Event Id="887867080" Name="MultiKill" ObjectPath="\Events\Default Work Unit\MultiKill"/>
-				<Event Id="2756207098" Name="Rampage" ObjectPath="\Events\Default Work Unit\Rampage"/>
-				<Event Id="3103184737" Name="TripleKill" ObjectPath="\Events\Default Work Unit\TripleKill"/>
+				<Event Id="305393359" Name="Dominating" ObjectPath="\Events\Default Work Unit\Dominating" />
+				<Event Id="3650570114" Name="DoubleKill" ObjectPath="\Events\Default Work Unit\DoubleKill" />
+				<Event Id="1611658976" Name="GodLike" ObjectPath="\Events\Default Work Unit\GodLike" />
+				<Event Id="2632074263" Name="HeadShot" ObjectPath="\Events\Default Work Unit\HeadShot" />
+				<Event Id="2980856139" Name="LudriKill" ObjectPath="\Events\Default Work Unit\LudriKill" />
+				<Event Id="2233416765" Name="MonsterKill" ObjectPath="\Events\Default Work Unit\MonsterKill" />
+				<Event Id="887867080" Name="MultiKill" ObjectPath="\Events\Default Work Unit\MultiKill" />
+				<Event Id="2756207098" Name="Rampage" ObjectPath="\Events\Default Work Unit\Rampage" />
+				<Event Id="3103184737" Name="TripleKill" ObjectPath="\Events\Default Work Unit\TripleKill" />
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="156036436" Language="SFX">

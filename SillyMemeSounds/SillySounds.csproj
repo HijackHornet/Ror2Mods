@@ -361,6 +361,10 @@
       <HintPath>..\libs\Zio.dll</HintPath>
       <Private>false</Private>
     </Reference>
+    <Reference Include="Hj">
+      <HintPath>..\libs\HjUpdaterAPI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Update="icon.png">
@@ -379,7 +383,4 @@
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="powershell Compress-Archive -Path '$(TargetDir)$(TargetFileName)', '$(ProjectDir)icon.png', '$(TargetDir)manifest.json', '$(ProjectDir)README.md' -DestinationPath '$(ProjectDir)\$(ProjectName).zip' -Force" />
   </Target>
-
-
-
 </Project>
